@@ -16,7 +16,7 @@
       <span style="font-family:'Space Mono',monospace;font-size:10px;color:#E8D8F8;text-align:center;">{{ section.settings.tag_text }}</span>
     </div>
     <div style="position:relative;z-index:2;padding-top:64px;">
-      <h1 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;margin:0;font-size:clamp(72px,13vw,176px);line-height:.86;letter-spacing:-.02em;">
+      <h1 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;margin:0;font-size:clamp({{ section.settings.heading_min }}px,13vw,{{ section.settings.heading_max }}px);line-height:.86;letter-spacing:-.02em;">
         {{ section.settings.line_1 }}<br><span style="font-style:italic;">{{ section.settings.line_2 }}</span><br>{{ section.settings.line_3 }}
       </h1>
       <p style="max-width:400px;color:#5B4373;font-size:14px;line-height:1.75;margin:36px 0 28px;">{{ section.settings.body }}</p>
@@ -47,6 +47,8 @@
     { "type": "text", "id": "line_1", "label": "Heading line 1", "default": "Essential" },
     { "type": "text", "id": "line_2", "label": "Heading line 2 (italic)", "default": "oils &" },
     { "type": "text", "id": "line_3", "label": "Heading line 3", "default": "rituals" },
+    { "type": "range", "id": "heading_max", "min": 80, "max": 240, "step": 4, "unit": "px", "label": "Heading size — desktop (max)", "default": 176 },
+    { "type": "range", "id": "heading_min", "min": 40, "max": 120, "step": 2, "unit": "px", "label": "Heading size — mobile (min)", "default": 72 },
     { "type": "textarea", "id": "body", "label": "Body text", "default": "Small-batch botanical oils and massage therapy for a body that needs to slow down. Pure ingredients, gentle rituals — a little calm you can hold in your hands." },
     { "type": "text", "id": "tag_text", "label": "Floating tag text", "default": "hand / product" },
     { "type": "text", "id": "button_1_text", "label": "Button 1 text", "default": "Shop now" },
