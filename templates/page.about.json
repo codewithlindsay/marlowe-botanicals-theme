@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "page-hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Our story",
+        "heading": "Slow beauty,",
+        "heading_italic": "made by hand",
+        "italic_on_new_line": true,
+        "body": "Marlowe Botanicals began at a kitchen table with a single bottle of lavender and a stubborn belief that rest shouldn't be a luxury. Every oil, blend, and candle we make still starts there — small, slow, and by hand.",
+        "bg": "#E8D8F8",
+        "show_wave": true,
+        "wave_color": "#FDF3EA"
+      }
+    },
+    "story": { "type": "story", "settings": { "show_wave": true, "wave_color": "#E4EFD1" } },
+    "values": {
+      "type": "values",
+      "blocks": {
+        "v1": { "type": "value", "settings": { "icon_color": "#E8D8F8", "title": "Small-batch", "text": "Made in runs of a few dozen, so quality never gets lost at scale." } },
+        "v2": { "type": "value", "settings": { "icon_color": "#A9CC7B", "title": "Ethically sourced", "text": "Ingredients traced to growers we know, cruelty-free, always." } },
+        "v3": { "type": "value", "settings": { "icon_color": "#5B4373", "title": "Skin-safe", "text": "Properly diluted, dermatologist-reviewed, and free of synthetic fragrance." } }
+      },
+      "block_order": ["v1", "v2", "v3"],
+      "settings": { "show_wave": true, "wave_color": "#5B4373" }
+    },
+    "founder-quote": { "type": "founder-quote", "settings": {} },
+    "cta": { "type": "cta", "settings": {} }
+  },
+  "order": ["page-hero", "story", "values", "founder-quote", "cta"]
+}

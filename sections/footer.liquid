@@ -1,0 +1,77 @@
+{%- comment -%} Marlowe — footer (wordmark, menu columns, copyright, optional social grid) {%- endcomment -%}
+<footer data-section="footer" style="background:{{ section.settings.bg }};padding:64px 44px;">
+  <div class="mb-footer__grid" style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+    <div>
+      <div style="width:74px;height:74px;border-radius:50%;background:{{ section.settings.mark_bg }};display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:34px;color:{{ section.settings.mark_color }};margin-bottom:26px;">{{ section.settings.wordmark_initial | default: 'M' }}</div>
+      <div style="display:flex;gap:36px;flex-wrap:wrap;margin-bottom:22px;">
+        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;">
+          {%- for link in section.settings.menu_1.links -%}
+            <a href="{{ link.url }}" style="color:{{ section.settings.link_color }};">{{ link.title }}</a>
+          {%- endfor -%}
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;">
+          {%- for link in section.settings.menu_2.links -%}
+            <a href="{{ link.url }}" style="color:{{ section.settings.link_color }};">{{ link.title }}</a>
+          {%- endfor -%}
+        </div>
+      </div>
+      <p style="color:{{ section.settings.accent }};font-size:11px;letter-spacing:.08em;line-height:1.7;margin:0;">{{ section.settings.copyright }}</p>
+    </div>
+    {%- if section.settings.show_social -%}
+    <div>
+      <h3 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:{{ section.settings.social_heading_color }};font-size:28px;margin:0 0 22px;">{{ section.settings.social_heading }}</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+        {%- assign tiles = 'a,b,c' | split: ',' -%}
+        {%- assign tilecolors = section.settings.tile_colors | split: ',' -%}
+        {%- for t in tiles -%}
+          {%- assign imgkey = 'social_image_' | append: forloop.index -%}
+          {%- assign img = section.settings[imgkey] -%}
+          {%- assign tc = tilecolors[forloop.index0] | default: '#5B4373' | strip -%}
+          <a href="{{ section.settings.social_url | default: '#' }}" style="aspect-ratio:1;border-radius:12px;overflow:hidden;background:{{ tc }};background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.14) 0 12px,transparent 12px 24px);display:flex;align-items:center;justify-content:center;">
+            {%- if img != blank -%}
+              <img src="{{ img | image_url: width: 400 }}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+            {%- else -%}
+              <span style="font-family:'Space Mono',monospace;font-size:10px;color:#FDF3EA;">post</span>
+            {%- endif -%}
+          </a>
+        {%- endfor -%}
+      </div>
+    </div>
+    {%- endif -%}
+  </div>
+</footer>
+
+<style>
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .mb-footer__grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Footer",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "wordmark_initial", "label": "Wordmark initial", "default": "M" },
+    { "type": "link_list", "id": "menu_1", "label": "Menu column 1", "default": "footer" },
+    { "type": "link_list", "id": "menu_2", "label": "Menu column 2" },
+    { "type": "richtext", "id": "copyright", "label": "Copyright", "default": "<p>© 2026 Marlowe Botanicals. All rights reserved.<br>Small-batch oils & massage therapy.</p>" },
+    { "type": "header", "content": "Social grid" },
+    { "type": "checkbox", "id": "show_social", "label": "Show social grid", "default": true },
+    { "type": "text", "id": "social_heading", "label": "Social heading", "default": "Follow me on the 'Gram" },
+    { "type": "url", "id": "social_url", "label": "Social link" },
+    { "type": "image_picker", "id": "social_image_1", "label": "Post image 1" },
+    { "type": "image_picker", "id": "social_image_2", "label": "Post image 2" },
+    { "type": "image_picker", "id": "social_image_3", "label": "Post image 3" },
+    { "type": "text", "id": "tile_colors", "label": "Tile placeholder colors (comma-separated)", "default": "#5B4373,#A9CC7B,#E8D8F8" },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#3F3F3D" },
+    { "type": "color", "id": "mark_bg", "label": "Wordmark circle", "default": "#E8D8F8" },
+    { "type": "color", "id": "mark_color", "label": "Wordmark letter", "default": "#5B4373" },
+    { "type": "color", "id": "link_color", "label": "Menu links", "default": "#E4EFD1" },
+    { "type": "color", "id": "accent", "label": "Copyright text", "default": "#A9CC7B" },
+    { "type": "color", "id": "social_heading_color", "label": "Social heading", "default": "#E8D8F8" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,38 @@
+{%- comment -%} Marlowe — page hero (rich text banner, shared by About / Contact) {%- endcomment -%}
+<section data-section="page-hero" style="background:{{ section.settings.bg }};padding:{{ section.settings.padding_top }}px 44px {{ section.settings.padding_bottom }}px;position:relative;">
+  <div style="position:absolute;top:26px;left:36px;pointer-events:none;">
+    <svg width="52" height="52" viewBox="0 0 40 40" style="display:block;"><g fill="#FFFFFF"><circle cx="20" cy="12" r="6.6"></circle><circle cx="28" cy="20" r="6.6"></circle><circle cx="20" cy="28" r="6.6"></circle><circle cx="12" cy="20" r="6.6"></circle></g><circle cx="20" cy="20" r="4.2" fill="#A9CC7B"></circle></svg>
+  </div>
+  <div style="max-width:820px;margin:0 auto;text-align:center;">
+    {%- if section.settings.eyebrow != blank -%}<p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#5B4373;margin:0 0 16px;">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    <h1 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:clamp(44px,7vw,80px);line-height:.98;margin:0 0 22px;">{{ section.settings.heading }}{%- if section.settings.heading_italic != blank -%}{% if section.settings.italic_on_new_line %}<br>{% else %} {% endif %}<span style="font-style:italic;">{{ section.settings.heading_italic }}</span>{%- endif -%}</h1>
+    {%- if section.settings.body != blank -%}<p style="color:#5B4373;font-size:14px;line-height:1.8;margin:0 auto;max-width:520px;">{{ section.settings.body }}</p>{%- endif -%}
+  </div>
+</section>
+{%- if section.settings.show_wave -%}
+<div style="background:{{ section.settings.bg }};line-height:0;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:52px;"><path fill="{{ section.settings.wave_color }}" d="M0,60 L0,30 Q60,0 120,30 T240,30 T360,30 T480,30 T600,30 T720,30 T840,30 T960,30 T1080,30 T1200,30 T1320,30 T1440,30 L1440,60 Z"></path></svg>
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Page hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our story" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Slow beauty," },
+    { "type": "text", "id": "heading_italic", "label": "Heading (italic part)", "default": "made by hand" },
+    { "type": "checkbox", "id": "italic_on_new_line", "label": "Italic part on new line", "default": true },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "Marlowe Botanicals began at a kitchen table with a single bottle of lavender and a stubborn belief that rest shouldn't be a luxury. Every oil, blend, and candle we make still starts there — small, slow, and by hand." },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#E8D8F8" },
+    { "type": "range", "id": "padding_top", "min": 40, "max": 120, "step": 4, "unit": "px", "label": "Padding top", "default": 76 },
+    { "type": "range", "id": "padding_bottom", "min": 40, "max": 120, "step": 4, "unit": "px", "label": "Padding bottom", "default": 88 },
+    { "type": "header", "content": "Bottom wave" },
+    { "type": "checkbox", "id": "show_wave", "label": "Show bottom wave", "default": true },
+    { "type": "color", "id": "wave_color", "label": "Wave color (next section bg)", "default": "#FDF3EA" }
+  ],
+  "presets": [{ "name": "Page hero" }]
+}
+{% endschema %}

@@ -1,0 +1,32 @@
+{%- comment -%} Marlowe — scrolling text marquee {%- endcomment -%}
+{%- assign parts = section.settings.text | split: '✦' -%}
+{%- capture strip -%}
+  {%- for p in parts -%}
+    <span style="font-family:'DM Serif Display',serif;font-style:italic;font-size:22px;color:{{ section.settings.text_color }};">{{ p | strip }}</span>&nbsp;&nbsp;<span style="color:{{ section.settings.accent }};">✦</span>&nbsp;&nbsp;
+  {%- endfor -%}
+{%- endcapture -%}
+<div data-section="marquee" style="background:{{ section.settings.bg }};padding:16px 0;overflow:hidden;white-space:nowrap;">
+  <div style="display:inline-flex;gap:0;animation:mb-marquee-{{ section.id }} {{ section.settings.speed }}s linear infinite;">
+    <span style="display:inline-flex;">{{ strip }}</span>
+    <span style="display:inline-flex;">{{ strip }}</span>
+  </div>
+</div>
+<style>
+  @keyframes mb-marquee-{{ section.id }} { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+</style>
+
+{% schema %}
+{
+  "name": "Marquee",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "text", "label": "Phrases (separate with ✦)", "default": "breathe deep ✦ rest often ✦ blended by hand ✦ botanicals only" },
+    { "type": "range", "id": "speed", "min": 10, "max": 60, "step": 2, "unit": "s", "label": "Scroll duration", "default": 26 },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#5B4373" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#E8D8F8" },
+    { "type": "color", "id": "accent", "label": "Star", "default": "#A9CC7B" }
+  ],
+  "presets": [{ "name": "Marquee" }]
+}
+{% endschema %}

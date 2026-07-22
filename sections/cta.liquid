@@ -1,0 +1,27 @@
+{%- comment -%} Marlowe — CTA (rich text with two buttons) {%- endcomment -%}
+<section data-section="cta" style="background:{{ section.settings.bg }};padding:76px 44px;">
+  <div style="max-width:760px;margin:0 auto;text-align:center;">
+    <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:40px;margin:0 0 24px;">{{ section.settings.heading }}</h2>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      {%- if section.settings.button_1_text != blank -%}<a href="{{ section.settings.button_1_link | default: '#' }}" style="display:inline-block;background:#5B4373;color:#FDF3EA;font-size:13px;letter-spacing:.16em;text-transform:uppercase;padding:16px 30px;border-radius:999px;">{{ section.settings.button_1_text }}</a>{%- endif -%}
+      {%- if section.settings.button_2_text != blank -%}<a href="{{ section.settings.button_2_link | default: '#' }}" style="display:inline-block;border:2px solid #5B4373;color:#5B4373;font-size:13px;letter-spacing:.16em;text-transform:uppercase;padding:15px 28px;border-radius:999px;">{{ section.settings.button_2_text }}</a>{%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CTA",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Ready to slow down?" },
+    { "type": "text", "id": "button_1_text", "label": "Button 1 text", "default": "Shop now" },
+    { "type": "url", "id": "button_1_link", "label": "Button 1 link" },
+    { "type": "text", "id": "button_2_text", "label": "Button 2 text", "default": "Book a session" },
+    { "type": "url", "id": "button_2_link", "label": "Button 2 link" },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#FDF3EA" }
+  ],
+  "presets": [{ "name": "CTA" }]
+}
+{% endschema %}

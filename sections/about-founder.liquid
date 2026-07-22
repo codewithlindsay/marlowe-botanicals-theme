@@ -1,0 +1,58 @@
+{%- comment -%} Marlowe — about the founder (image with text) {%- endcomment -%}
+<section data-section="about-founder" style="background:{{ section.settings.bg }};padding:76px 44px;">
+  <div class="mb-founder" style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:center;">
+    <div>
+      <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:40px;line-height:1.05;margin:0 0 24px;">{{ section.settings.heading }}</h2>
+      <p style="color:#3F3F3D;font-size:13px;line-height:1.75;margin:0 0 16px;max-width:380px;">{{ section.settings.paragraph_1 }}</p>
+      <p style="color:#3F3F3D;font-size:13px;line-height:1.75;margin:0 0 26px;max-width:380px;">{{ section.settings.paragraph_2 }}</p>
+      {%- if section.settings.button_text != blank -%}
+        <a href="{{ section.settings.button_link | default: '#' }}" style="display:inline-block;border:2px solid #5B4373;color:#5B4373;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:13px 26px;border-radius:999px;">{{ section.settings.button_text }}</a>
+      {%- endif -%}
+    </div>
+    <div style="position:relative;justify-self:center;">
+      <div style="width:min(400px,40vw);aspect-ratio:1;border-radius:50%;background:#E8D8F8;display:flex;align-items:center;justify-content:center;overflow:hidden;background-image:repeating-linear-gradient(45deg,rgba(91,67,115,.09) 0 14px,transparent 14px 28px);">
+        {%- if section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+        {%- else -%}
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#5B4373;text-align:center;">Founder portrait</span>
+        {%- endif -%}
+      </div>
+      <div class="mb-founder__tag" style="position:absolute;top:-14px;left:8%;width:120px;height:110px;border-radius:20px;transform:rotate(-6deg);background:#5B4373;background-image:repeating-linear-gradient(-45deg,rgba(224,203,245,.15) 0 9px,transparent 9px 18px);display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'Space Mono',monospace;font-size:10px;color:#E8D8F8;text-align:center;">{{ section.settings.tag_text }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+{%- if section.settings.show_wave -%}
+<div style="background:{{ section.settings.bg }};line-height:0;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:52px;"><path fill="{{ section.settings.wave_color }}" d="M0,60 L0,30 Q60,0 120,30 T240,30 T360,30 T480,30 T600,30 T720,30 T840,30 T960,30 T1080,30 T1200,30 T1320,30 T1440,30 L1440,60 Z"></path></svg>
+</div>
+{%- endif -%}
+
+<style>
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .mb-founder { grid-template-columns: 1fr !important; gap: 36px !important; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "About founder",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The hands behind the blends" },
+    { "type": "textarea", "id": "paragraph_1", "label": "Paragraph 1", "default": "I'm a licensed massage therapist and certified aromatherapist who fell for plants the slow way — one blend, one sore shoulder at a time." },
+    { "type": "textarea", "id": "paragraph_2", "label": "Paragraph 2", "default": "Now I help people unwind with hands-on bodywork and botanical oils they can take home to keep the calm going between sessions." },
+    { "type": "text", "id": "button_text", "label": "Button text", "default": "Learn more" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "image_picker", "id": "image", "label": "Portrait image" },
+    { "type": "text", "id": "tag_text", "label": "Floating tag text", "default": "retro telephone" },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#E4EFD1" },
+    { "type": "header", "content": "Bottom wave" },
+    { "type": "checkbox", "id": "show_wave", "label": "Show bottom wave", "default": true },
+    { "type": "color", "id": "wave_color", "label": "Wave color (next section bg)", "default": "#E8D8F8" }
+  ],
+  "presets": [{ "name": "About founder" }]
+}
+{% endschema %}

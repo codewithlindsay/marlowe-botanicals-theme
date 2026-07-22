@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "breadcrumb": { "type": "breadcrumb", "settings": {} },
+    "product-info": {
+      "type": "product-info",
+      "blocks": {
+        "a1": { "type": "accordion", "settings": { "heading": "Description", "use_product_description": true, "content": "<p>Distilled from organically grown Lavandula angustifolia. Floral, herbaceous, and calming — ideal for winding down before sleep.</p>" } },
+        "a2": { "type": "accordion", "settings": { "heading": "How to use", "content": "<p>Add 4–6 drops to a diffuser, or dilute with a carrier oil for a pulse-point roll-on. Never apply undiluted to skin.</p>" } },
+        "a3": { "type": "accordion", "settings": { "heading": "Ingredients", "content": "<p>100% Lavandula angustifolia (lavender) essential oil. Nothing else.</p>" } },
+        "a4": { "type": "accordion", "settings": { "heading": "Shipping & returns", "content": "<p>Free shipping over $50. Ships in 1–2 business days. Unopened bottles returnable within 30 days.</p>" } }
+      },
+      "block_order": ["a1", "a2", "a3", "a4"],
+      "settings": {}
+    },
+    "related-products": { "type": "related-products", "settings": {} }
+  },
+  "order": ["breadcrumb", "product-info", "related-products"]
+}

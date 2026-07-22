@@ -1,0 +1,86 @@
+{
+  "sections": {
+    "hero-banner": { "type": "hero-banner", "settings": {} },
+    "featured-bestsellers": {
+      "type": "featured-bestsellers",
+      "blocks": {
+        "b1": { "type": "product_card", "settings": { "image_bg": "#E4EFD1", "badge": "Bestseller", "badge_bg": "#A9CC7B", "badge_color": "#3F3F3D", "title": "Lavender Calm Oil", "description": "Pure lavender to unwind before sleep.", "price": "$24" } },
+        "b2": { "type": "product_card", "settings": { "image_bg": "#D9E8C0", "badge": "New", "badge_bg": "#5B4373", "badge_color": "#E4EFD1", "title": "Muscle Melt Massage Oil", "description": "Warming blend for tired, knotted muscles.", "price": "$32" } },
+        "b3": { "type": "product_card", "settings": { "image_bg": "#D8C4F0", "title": "Eucalyptus Breathe Roll-On", "description": "Clear the head and open the chest, on the go.", "price": "$18" } },
+        "b4": { "type": "product_card", "settings": { "image_bg": "#E4EFD1", "title": "Sweet Almond Carrier Oil", "description": "Silky, unscented base for your own blends.", "price": "$16" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {}
+    },
+    "slow-down": {
+      "type": "slow-down",
+      "blocks": {
+        "i1": { "type": "item", "settings": { "text": "Blended with pure essential oils — no synthetic fragrance, ever." } },
+        "i2": { "type": "item", "settings": { "text": "Grounding rituals that fit into five quiet minutes a day." } },
+        "i3": { "type": "item", "settings": { "text": "Massage techniques you can practice at home between sessions." } },
+        "i4": { "type": "item", "settings": { "text": "Sourced ethically and made in small batches, in-studio." } }
+      },
+      "block_order": ["i1", "i2", "i3", "i4"],
+      "settings": {}
+    },
+    "marquee": { "type": "marquee", "settings": {} },
+    "seasonal-candles": {
+      "type": "seasonal-candles",
+      "blocks": {
+        "c1": { "type": "product_card", "settings": { "image_bg": "#D8C4F0", "badge": "Limited", "title": "Fig & Cedar", "description": "Warm fig, cedarwood, and a whisper of smoke. ~45hr burn.", "price": "$28" } },
+        "c2": { "type": "product_card", "settings": { "image_bg": "#D9E8C0", "badge": "Limited", "title": "Lavender Fields", "description": "Fresh lavender, bergamot, and soft white musk. ~45hr burn.", "price": "$28" } },
+        "c3": { "type": "product_card", "settings": { "image_bg": "#E4EFD1", "badge": "Limited", "title": "Sea Salt & Sage", "description": "Sea salt, garden sage, and sun-warmed driftwood. ~45hr burn.", "price": "$28" } }
+      },
+      "block_order": ["c1", "c2", "c3"],
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q1": { "type": "qa", "settings": { "question": "Which oil is right for me?", "answer": "Start with what you want to feel — calm, clear, or energized — and I'll match you. Not sure? The Lavender Calm blend is where most people begin.", "open": true } },
+        "q2": { "type": "qa", "settings": { "question": "Do you offer gift cards?", "answer": "Yes — digital gift cards come in any amount and can be used on oils, massage sessions, or both. They never expire." } },
+        "q3": { "type": "qa", "settings": { "question": "How do I book a massage?", "answer": "Head to the booking page, choose a service and a time that suits you, and you'll get a confirmation right away. New clients start with a short intake so I can tailor the session." } },
+        "q4": { "type": "qa", "settings": { "question": "Can I use these while pregnant?", "answer": "A few oils aren't recommended during pregnancy. Please check with your provider first, then reach out — I'm glad to point you to the pregnancy-safe blends." } },
+        "q5": { "type": "qa", "settings": { "question": "Are the oils safe for sensitive skin?", "answer": "Every blend is diluted in a gentle carrier oil and skips synthetic fragrance entirely. I still recommend a small patch test first, especially if your skin runs reactive." } },
+        "q6": { "type": "qa", "settings": { "question": "Do you ship internationally?", "answer": "Right now I ship across the US and Canada, with more regions on the way. Send me a note with your location and I'll let you know what's possible." } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": {}
+    },
+    "services": {
+      "type": "services",
+      "blocks": {
+        "s1": { "type": "service", "settings": { "label": "Swedish Massage", "bg": "#E8D8F8", "text_color": "#5B4373" } },
+        "s2": { "type": "service", "settings": { "label": "Aromatherapy Consult", "bg": "#A9CC7B", "text_color": "#3F3F3D" } },
+        "s3": { "type": "service", "settings": { "label": "Gift Cards", "bg": "#E4EFD1", "text_color": "#5B4373" } },
+        "s4": { "type": "service", "settings": { "label": "Shop the Oils", "bg": "#5B4373", "text_color": "#E4EFD1" } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"],
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "t1": { "type": "testimonial", "settings": { "quote": "The Lavender Calm oil has completely changed my wind-down routine. I actually sleep now — and the whole thing smells like a spa, not a chemistry set.", "name": "Maya R.", "role": "Verified buyer" } },
+        "t2": { "type": "testimonial", "settings": { "quote": "Best massage I've had in years. Marlowe actually listened, and the custom blend she sent me home with keeps my shoulders from seizing up at my desk.", "name": "Daniel K.", "role": "Monthly regular" } },
+        "t3": { "type": "testimonial", "settings": { "quote": "I bought the Muscle Melt oil for my partner and now we're both hooked. Ethical, small-batch, and it actually works. Reordering already.", "name": "Priya S.", "role": "Verified buyer" } }
+      },
+      "block_order": ["t1", "t2", "t3"],
+      "settings": {}
+    },
+    "about-founder": { "type": "about-founder", "settings": {} },
+    "newsletter": { "type": "newsletter", "settings": {} }
+  },
+  "order": [
+    "hero-banner",
+    "featured-bestsellers",
+    "slow-down",
+    "marquee",
+    "seasonal-candles",
+    "faq",
+    "services",
+    "testimonials",
+    "about-founder",
+    "newsletter"
+  ]
+}

@@ -1,0 +1,60 @@
+{%- comment -%} Marlowe — values (multicolumn cards) {%- endcomment -%}
+<section data-section="values" style="background:{{ section.settings.bg }};padding:80px 44px;">
+  <div style="max-width:1120px;margin:0 auto;">
+    <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:36px;margin:0 0 34px;text-align:center;">{{ section.settings.heading }}</h2>
+    <div class="mb-cards mb-cards--3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+      {%- for block in section.blocks -%}
+        <div {{ block.shopify_attributes }} style="background:#FFFFFF;border-radius:22px;padding:34px 30px;">
+          <div style="width:44px;height:44px;border-radius:50%;background:{{ block.settings.icon_color }};margin-bottom:20px;"></div>
+          <h3 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:22px;margin:0 0 10px;">{{ block.settings.title }}</h3>
+          <p style="color:#3F3F3D;font-size:13px;line-height:1.7;margin:0;">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{%- if section.settings.show_wave -%}
+<div style="background:{{ section.settings.bg }};line-height:0;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:52px;"><path fill="{{ section.settings.wave_color }}" d="M0,60 L0,30 Q60,0 120,30 T240,30 T360,30 T480,30 T600,30 T720,30 T840,30 T960,30 T1080,30 T1200,30 T1320,30 T1440,30 L1440,60 Z"></path></svg>
+</div>
+{%- endif -%}
+
+<style>
+  @media screen and (max-width: 749px) { #shopify-section-{{ section.id }} .mb-cards--3 { grid-template-columns: 1fr !important; } }
+</style>
+
+{% schema %}
+{
+  "name": "Values",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What we stand for" },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#E4EFD1" },
+    { "type": "header", "content": "Bottom wave" },
+    { "type": "checkbox", "id": "show_wave", "label": "Show bottom wave", "default": true },
+    { "type": "color", "id": "wave_color", "label": "Wave color (next section bg)", "default": "#5B4373" }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        { "type": "color", "id": "icon_color", "label": "Icon color", "default": "#E8D8F8" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Value title" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "A short description of this value." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Values",
+      "blocks": [
+        { "type": "value", "settings": { "icon_color": "#E8D8F8", "title": "Small-batch", "text": "Made in runs of a few dozen, so quality never gets lost at scale." } },
+        { "type": "value", "settings": { "icon_color": "#A9CC7B", "title": "Ethically sourced", "text": "Ingredients traced to growers we know, cruelty-free, always." } },
+        { "type": "value", "settings": { "icon_color": "#5B4373", "title": "Skin-safe", "text": "Properly diluted, dermatologist-reviewed, and free of synthetic fragrance." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

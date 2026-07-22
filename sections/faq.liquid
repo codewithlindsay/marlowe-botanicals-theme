@@ -1,0 +1,58 @@
+{%- comment -%} Marlowe — FAQ (collapsible content, two columns) {%- endcomment -%}
+<section data-section="faq" style="background:{{ section.settings.bg }};padding:80px 44px 96px;">
+  <div style="max-width:620px;margin:0 auto 48px;text-align:center;">
+    <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#FFFFFF;font-size:38px;line-height:1.1;margin:0 0 18px;">{{ section.settings.heading }}</h2>
+    <p style="color:#FFFFFF;font-size:13px;line-height:1.7;margin:0;">{{ section.settings.intro }}</p>
+  </div>
+  <div class="mb-faq" style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:0 56px;">
+    {%- for block in section.blocks -%}
+      <details {{ block.shopify_attributes }} {% if block.settings.open %}open{% endif %} class="mb-faq__item" style="border-bottom:1px solid rgba(224,203,245,.28);height:fit-content;">
+        <summary class="mb-faq__q" style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 2px;font-family:'Space Mono',monospace;font-size:15px;font-weight:700;color:#FDF3EA;">{{ block.settings.question }}<span class="mb-faq__chev" style="color:#A9CC7B;font-size:13px;transition:transform .25s;">▼</span></summary>
+        <p style="color:#E8D8F8;font-size:13px;line-height:1.7;margin:0;padding:0 2px 22px;">{{ block.settings.answer }}</p>
+      </details>
+    {%- endfor -%}
+  </div>
+</section>
+
+<style>
+  #shopify-section-{{ section.id }} summary.mb-faq__q::-webkit-details-marker { display: none; }
+  #shopify-section-{{ section.id }} details[open] > summary.mb-faq__q .mb-faq__chev { transform: rotate(180deg); }
+  @media screen and (max-width: 749px) { #shopify-section-{{ section.id }} .mb-faq { grid-template-columns: 1fr !important; } }
+</style>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Questions? I've got answers." },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "New to essential oils or booking your first massage? Totally normal to have questions. Here are the ones I hear most — and if yours isn't here, just reach out." },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#5B4373" }
+  ],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Your question here?" },
+        { "type": "textarea", "id": "answer", "label": "Answer", "default": "The answer goes here." },
+        { "type": "checkbox", "id": "open", "label": "Open by default", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        { "type": "qa", "settings": { "question": "Which oil is right for me?", "answer": "Start with what you want to feel — calm, clear, or energized — and I'll match you. Not sure? The Lavender Calm blend is where most people begin.", "open": true } },
+        { "type": "qa", "settings": { "question": "Do you offer gift cards?", "answer": "Yes — digital gift cards come in any amount and can be used on oils, massage sessions, or both. They never expire." } },
+        { "type": "qa", "settings": { "question": "How do I book a massage?", "answer": "Head to the booking page, choose a service and a time that suits you, and you'll get a confirmation right away. New clients start with a short intake so I can tailor the session." } },
+        { "type": "qa", "settings": { "question": "Can I use these while pregnant?", "answer": "A few oils aren't recommended during pregnancy. Please check with your provider first, then reach out — I'm glad to point you to the pregnancy-safe blends." } },
+        { "type": "qa", "settings": { "question": "Are the oils safe for sensitive skin?", "answer": "Every blend is diluted in a gentle carrier oil and skips synthetic fragrance entirely. I still recommend a small patch test first, especially if your skin runs reactive." } },
+        { "type": "qa", "settings": { "question": "Do you ship internationally?", "answer": "Right now I ship across the US and Canada, with more regions on the way. Send me a note with your location and I'll let you know what's possible." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

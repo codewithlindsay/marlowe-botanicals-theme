@@ -1,0 +1,60 @@
+{%- comment -%} Marlowe — testimonials (3 cards) {%- endcomment -%}
+<section data-section="testimonials" style="background:{{ section.settings.bg }};padding:24px 44px 88px;">
+  <div style="max-width:1180px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:40px;">
+      {%- if section.settings.eyebrow != blank -%}<p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#A9CC7B;margin:0 0 10px;">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:40px;line-height:1.05;margin:0;">{{ section.settings.heading }}</h2>
+    </div>
+    <div class="mb-cards mb-cards--3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+      {%- for block in section.blocks -%}
+        <div {{ block.shopify_attributes }} style="background:#FFFFFF;border-radius:22px;padding:32px 30px;display:flex;flex-direction:column;gap:16px;">
+          <div style="color:#5B4373;font-size:15px;letter-spacing:.14em;">{% for i in (1..block.settings.stars) %}★{% endfor %}</div>
+          <p style="color:#3F3F3D;font-size:14px;line-height:1.7;margin:0;flex:1;">"{{ block.settings.quote }}"</p>
+          <div>
+            <div style="font-family:'DM Serif Display',serif;font-style:italic;color:#5B4373;font-size:18px;">{{ block.settings.name }}</div>
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#3F3F3D;margin-top:2px;">{{ block.settings.role }}</div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  @media screen and (max-width: 749px) { #shopify-section-{{ section.id }} .mb-cards--3 { grid-template-columns: 1fr !important; } }
+</style>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Kind words" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What people are saying" },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#FDF3EA" }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "range", "id": "stars", "min": 1, "max": 5, "step": 1, "label": "Stars", "default": 5 },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "A short, glowing quote from a happy customer." },
+        { "type": "text", "id": "name", "label": "Name", "default": "Customer name" },
+        { "type": "text", "id": "role", "label": "Role", "default": "Verified buyer" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        { "type": "testimonial", "settings": { "quote": "The Lavender Calm oil has completely changed my wind-down routine. I actually sleep now — and the whole thing smells like a spa, not a chemistry set.", "name": "Maya R.", "role": "Verified buyer" } },
+        { "type": "testimonial", "settings": { "quote": "Best massage I've had in years. Marlowe actually listened, and the custom blend she sent me home with keeps my shoulders from seizing up at my desk.", "name": "Daniel K.", "role": "Monthly regular" } },
+        { "type": "testimonial", "settings": { "quote": "I bought the Muscle Melt oil for my partner and now we're both hooked. Ethical, small-batch, and it actually works. Reordering already.", "name": "Priya S.", "role": "Verified buyer" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
