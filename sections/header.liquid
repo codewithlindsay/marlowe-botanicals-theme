@@ -2,7 +2,7 @@
 <header data-section="header" class="mb-header" style="background:{{ section.settings.bg }};padding:20px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
   <a href="{{ routes.root_url }}" style="font-family:'DM Serif Display',serif;font-size:32px;line-height:1;color:{{ section.settings.text_color }};">
     {%- if section.settings.logo != blank -%}
-      <img src="{{ section.settings.logo | image_url: width: 320 }}" alt="{{ shop.name | escape }}" style="max-height:44px;width:auto;display:block;">
+      <img src="{{ section.settings.logo | image_url: width: 320 }}" alt="{{ shop.name | escape }}" width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}" style="max-height:44px;width:auto;display:block;">
     {%- else -%}
       {{ section.settings.logo_text | default: shop.name }}
     {%- endif -%}
