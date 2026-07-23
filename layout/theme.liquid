@@ -338,6 +338,10 @@
 
       body { background: #FDF3EA; }
 
+      /* Links inside Marlowe sections use color / borders, not underlines */
+      [data-section] a { text-decoration: none !important; }
+      [data-section] a:hover { text-decoration: none !important; opacity: .68; }
+
       h1, h2, h3, h4, h5, .h0, .h1, .h2, .h3, .h4, .h5 {
         font-weight: 400;
         letter-spacing: -0.01em;
