@@ -18,8 +18,12 @@
           <span style="font-family:'Space Mono',monospace;font-size:12px;color:#5B4373;text-align:center;">Massage in session</span>
         {%- endif -%}
       </div>
-      <div class="mb-services__tag" style="position:absolute;bottom:-20px;left:-22px;width:96px;height:112px;border-radius:16px;transform:rotate(-10deg);background:#5B4373;background-image:repeating-linear-gradient(-45deg,rgba(224,203,245,.16) 0 9px,transparent 9px 18px);display:flex;align-items:center;justify-content:center;">
-        <span style="font-family:'Space Mono',monospace;font-size:10px;color:#E8D8F8;text-align:center;">{{ section.settings.tag_text }}</span>
+      <div class="mb-services__tag" style="position:absolute;bottom:-20px;left:-22px;width:{{ section.settings.tag_size }}px;aspect-ratio:96/112;border-radius:16px;transform:rotate(-10deg);background:#5B4373;background-image:repeating-linear-gradient(-45deg,rgba(224,203,245,.16) 0 9px,transparent 9px 18px);display:flex;align-items:center;justify-content:center;overflow:hidden;">
+        {%- if section.settings.tag_image != blank -%}
+          <img src="{{ section.settings.tag_image | image_url: width: 400 }}" alt="{{ section.settings.tag_image.alt | escape }}" loading="lazy" width="{{ section.settings.tag_image.width }}" height="{{ section.settings.tag_image.height }}" style="width:100%;height:100%;object-fit:cover;">
+        {%- else -%}
+          <span style="font-family:'Space Mono',monospace;font-size:10px;color:#E8D8F8;text-align:center;">{{ section.settings.tag_text }}</span>
+        {%- endif -%}
       </div>
     </div>
   </div>
@@ -41,7 +45,10 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "Choose your calm" },
     { "type": "textarea", "id": "intro", "label": "Intro", "default": "Come in for hands-on bodywork, build a custom blend with me, or take the ritual home. There's a way in whatever you're after." },
     { "type": "image_picker", "id": "image", "label": "Image" },
-    { "type": "text", "id": "tag_text", "label": "Floating tag text", "default": "oil bottle" },
+    { "type": "header", "content": "Floating tile (overlaps the image)" },
+    { "type": "image_picker", "id": "tag_image", "label": "Tile image", "info": "Optional. Falls back to the striped placeholder + text below when empty." },
+    { "type": "range", "id": "tag_size", "min": 60, "max": 200, "step": 2, "unit": "px", "label": "Tile width", "default": 96 },
+    { "type": "text", "id": "tag_text", "label": "Tile placeholder text", "default": "oil bottle" },
     { "type": "color", "id": "bg", "label": "Background", "default": "#FDF3EA" }
   ],
   "blocks": [
