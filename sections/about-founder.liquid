@@ -1,6 +1,22 @@
 {%- comment -%} Marlowe — about the founder (image with text) {%- endcomment -%}
 <section data-section="about-founder" style="background:{{ section.settings.bg }};padding:76px 44px;">
-  <div class="mb-founder" style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:center;">
+  <div class="mb-founder" style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center;">
+    <div style="position:relative;justify-self:center;">
+      <div style="width:min({{ section.settings.image_size }}px,{{ section.settings.image_size_vw }}vw);aspect-ratio:1;border-radius:50%;background:#E8D8F8;display:flex;align-items:center;justify-content:center;overflow:hidden;background-image:repeating-linear-gradient(45deg,rgba(91,67,115,.09) 0 14px,transparent 14px 28px);">
+        {%- if section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" style="width:100%;height:100%;object-fit:cover;">
+        {%- else -%}
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#5B4373;text-align:center;">Founder portrait</span>
+        {%- endif -%}
+      </div>
+      <div class="mb-founder__tag" style="position:absolute;top:-14px;left:8%;width:{{ section.settings.tag_size }}px;aspect-ratio:120/110;border-radius:20px;transform:rotate(-6deg);background:#5B4373;background-image:repeating-linear-gradient(-45deg,rgba(224,203,245,.15) 0 9px,transparent 9px 18px);display:flex;align-items:center;justify-content:center;overflow:hidden;">
+        {%- if section.settings.tag_image != blank -%}
+          <img src="{{ section.settings.tag_image | image_url: width: 400 }}" alt="{{ section.settings.tag_image.alt | escape }}" loading="lazy" width="{{ section.settings.tag_image.width }}" height="{{ section.settings.tag_image.height }}" style="width:100%;height:100%;object-fit:cover;">
+        {%- else -%}
+          <span style="font-family:'Space Mono',monospace;font-size:10px;color:#E8D8F8;text-align:center;">{{ section.settings.tag_text }}</span>
+        {%- endif -%}
+      </div>
+    </div>
     <div>
       <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:40px;line-height:1.05;margin:0 0 24px;">{{ section.settings.heading }}</h2>
       <p style="color:#3F3F3D;font-size:13px;line-height:1.75;margin:0 0 16px;max-width:380px;">{{ section.settings.paragraph_1 }}</p>
@@ -8,18 +24,6 @@
       {%- if section.settings.button_text != blank -%}
         <a href="{{ section.settings.button_link | default: '#' }}" style="display:inline-block;border:2px solid #5B4373;color:#5B4373;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:13px 26px;border-radius:999px;">{{ section.settings.button_text }}</a>
       {%- endif -%}
-    </div>
-    <div style="position:relative;justify-self:center;">
-      <div style="width:min(400px,40vw);aspect-ratio:1;border-radius:50%;background:#E8D8F8;display:flex;align-items:center;justify-content:center;overflow:hidden;background-image:repeating-linear-gradient(45deg,rgba(91,67,115,.09) 0 14px,transparent 14px 28px);">
-        {%- if section.settings.image != blank -%}
-          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" style="width:100%;height:100%;object-fit:cover;">
-        {%- else -%}
-          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#5B4373;text-align:center;">Founder portrait</span>
-        {%- endif -%}
-      </div>
-      <div class="mb-founder__tag" style="position:absolute;top:-14px;left:8%;width:120px;height:110px;border-radius:20px;transform:rotate(-6deg);background:#5B4373;background-image:repeating-linear-gradient(-45deg,rgba(224,203,245,.15) 0 9px,transparent 9px 18px);display:flex;align-items:center;justify-content:center;">
-        <span style="font-family:'Space Mono',monospace;font-size:10px;color:#E8D8F8;text-align:center;">{{ section.settings.tag_text }}</span>
-      </div>
     </div>
   </div>
 </section>
@@ -46,8 +50,15 @@
     { "type": "textarea", "id": "paragraph_2", "label": "Paragraph 2", "default": "Now I help people unwind with hands-on bodywork and botanical oils they can take home to keep the calm going between sessions." },
     { "type": "text", "id": "button_text", "label": "Button text", "default": "Learn more" },
     { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "header", "content": "Portrait" },
     { "type": "image_picker", "id": "image", "label": "Portrait image" },
-    { "type": "text", "id": "tag_text", "label": "Floating tag text", "default": "retro telephone" },
+    { "type": "range", "id": "image_size", "min": 240, "max": 620, "step": 10, "unit": "px", "label": "Portrait size (max)", "default": 400 },
+    { "type": "range", "id": "image_size_vw", "min": 25, "max": 60, "step": 1, "unit": "%", "label": "Portrait size (scales with screen width)", "info": "Shows whichever of the two is smaller, so it never overflows.", "default": 40 },
+    { "type": "header", "content": "Floating tile (overlaps the portrait)" },
+    { "type": "image_picker", "id": "tag_image", "label": "Tile image", "info": "Optional. Falls back to the striped placeholder + text below when empty." },
+    { "type": "range", "id": "tag_size", "min": 70, "max": 240, "step": 2, "unit": "px", "label": "Tile width", "default": 120 },
+    { "type": "text", "id": "tag_text", "label": "Tile placeholder text", "default": "retro telephone" },
+    { "type": "header", "content": "General" },
     { "type": "color", "id": "bg", "label": "Background", "default": "#E4EFD1" },
     { "type": "header", "content": "Bottom wave" },
     { "type": "checkbox", "id": "show_wave", "label": "Show bottom wave", "default": true },
