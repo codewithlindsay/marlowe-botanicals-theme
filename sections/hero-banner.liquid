@@ -12,8 +12,12 @@
         <span style="font-family:'Space Mono',monospace;font-size:12px;color:#3F3F3D;text-align:center;">Hero image —<br>oils &amp; botanicals</span>
       {%- endif -%}
     </div>
-    <div class="mb-hero__tag" style="position:absolute;top:min(430px,42vw);right:min(410px,36vw);width:118px;height:118px;border-radius:26px;transform:rotate(-8deg);background:#5B4373;background-image:repeating-linear-gradient(-45deg,rgba(232,216,248,.16) 0 10px,transparent 10px 20px);display:flex;align-items:center;justify-content:center;z-index:2;">
-      <span style="font-family:'Space Mono',monospace;font-size:10px;color:#E8D8F8;text-align:center;">{{ section.settings.tag_text }}</span>
+    <div class="mb-hero__tag" style="position:absolute;top:min(430px,42vw);right:min(410px,36vw);width:{{ section.settings.tag_size }}px;height:{{ section.settings.tag_size }}px;border-radius:26px;transform:rotate(-8deg);background:#5B4373;background-image:repeating-linear-gradient(-45deg,rgba(232,216,248,.16) 0 10px,transparent 10px 20px);display:flex;align-items:center;justify-content:center;overflow:hidden;z-index:2;">
+      {%- if section.settings.tag_image != blank -%}
+        <img src="{{ section.settings.tag_image | image_url: width: 400 }}" alt="{{ section.settings.tag_image.alt | escape }}" loading="lazy" width="{{ section.settings.tag_image.width }}" height="{{ section.settings.tag_image.height }}" style="width:100%;height:100%;object-fit:cover;">
+      {%- else -%}
+        <span style="font-family:'Space Mono',monospace;font-size:10px;color:#E8D8F8;text-align:center;">{{ section.settings.tag_text }}</span>
+      {%- endif -%}
     </div>
     <div style="position:relative;z-index:2;padding-top:64px;">
       <h1 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;margin:0;font-size:clamp({{ section.settings.heading_min }}px,13vw,{{ section.settings.heading_max }}px);line-height:.86;letter-spacing:-.02em;">
@@ -50,7 +54,10 @@
     { "type": "range", "id": "heading_max", "min": 80, "max": 240, "step": 4, "unit": "px", "label": "Heading size — desktop (max)", "default": 176 },
     { "type": "range", "id": "heading_min", "min": 40, "max": 120, "step": 2, "unit": "px", "label": "Heading size — mobile (min)", "default": 72 },
     { "type": "textarea", "id": "body", "label": "Body text", "default": "Small-batch botanical oils and massage therapy for a body that needs to slow down. Pure ingredients, gentle rituals — a little calm you can hold in your hands." },
-    { "type": "text", "id": "tag_text", "label": "Floating tag text", "default": "hand / product" },
+    { "type": "header", "content": "Floating tile (overlaps the circle)" },
+    { "type": "image_picker", "id": "tag_image", "label": "Tile image", "info": "Optional. Falls back to the striped placeholder + text below when empty." },
+    { "type": "range", "id": "tag_size", "min": 80, "max": 220, "step": 4, "unit": "px", "label": "Tile size", "default": 118 },
+    { "type": "text", "id": "tag_text", "label": "Tile placeholder text", "default": "hand / product" },
     { "type": "text", "id": "button_1_text", "label": "Button 1 text", "default": "Shop now" },
     { "type": "url", "id": "button_1_link", "label": "Button 1 link" },
     { "type": "text", "id": "button_2_text", "label": "Button 2 text", "default": "Book a session" },
