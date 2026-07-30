@@ -21,6 +21,9 @@
       <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:clamp(34px,4vw,48px);line-height:1.05;margin:0 0 22px;">{{ section.settings.heading }}</h2>
       <p style="color:#3F3F3D;font-size:14px;line-height:1.8;margin:0 0 16px;max-width:440px;">{{ section.settings.paragraph_1 }}</p>
       <p style="color:#3F3F3D;font-size:14px;line-height:1.8;margin:0;max-width:440px;">{{ section.settings.paragraph_2 }}</p>
+      {%- if section.settings.button_text != blank -%}
+        <a href="{{ section.settings.button_link | default: '#' }}" style="display:inline-block;margin-top:26px;background:#A9CC7B;color:#3F3F3D;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:14px 28px;border-radius:999px;">{{ section.settings.button_text }}</a>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -52,6 +55,8 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "How it started" },
     { "type": "textarea", "id": "paragraph_1", "label": "Paragraph 1", "default": "After years as a massage therapist, I kept sending clients home wishing they could bottle the calm from the table. So I learned to. First for friends, then a tiny market stall, then this." },
     { "type": "textarea", "id": "paragraph_2", "label": "Paragraph 2", "default": "Today every product is blended in small batches, tested on my own tired shoulders, and made with ingredients I can trace back to the grower. No shortcuts, no synthetic fragrance — just plants doing what they do best." },
+    { "type": "text", "id": "button_text", "label": "Button text", "info": "Leave blank to hide the button." },
+    { "type": "url", "id": "button_link", "label": "Button link" },
     { "type": "color", "id": "bg", "label": "Background", "default": "#FDF3EA" },
     { "type": "header", "content": "Bottom wave" },
     { "type": "checkbox", "id": "show_wave", "label": "Show bottom wave", "default": true },
