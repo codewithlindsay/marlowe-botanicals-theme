@@ -15,7 +15,7 @@
           {%- endfor -%}
         </div>
       </div>
-      <p style="color:{{ section.settings.accent }};font-size:13px;letter-spacing:.08em;line-height:1.7;margin:0;">{{ section.settings.copyright }}</p>
+      <div class="mb-footer-copy" style="color:{{ section.settings.accent }};font-size:13px;letter-spacing:.08em;line-height:1.7;">{{ section.settings.copyright }}</div>
     </div>
     {%- if section.settings.show_social -%}
     <div>
@@ -42,6 +42,7 @@
 </footer>
 
 <style>
+  #shopify-section-{{ section.id }} .mb-footer-copy p { color: {{ section.settings.accent }}; margin: 0; }
   @media screen and (max-width: 749px) {
     #shopify-section-{{ section.id }} .mb-footer__grid { grid-template-columns: 1fr !important; gap: 36px !important; }
   }
