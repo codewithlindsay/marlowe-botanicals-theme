@@ -1,8 +1,1 @@
-{
-  "name": "Footer",
-  "type": "footer",
-  "sections": {
-    "footer": { "type": "footer", "settings": {} }
-  },
-  "order": ["footer"]
-}
+{"name":"Footer","type":"footer","sections":{"footer":{"type":"footer","settings":{"wordmark_initial":"M","menu_1":"footer","menu_2":"","copyright":"<p>© 2026 Marlowe Botanicals. All rights reserved.<br\/>Small-batch oils & massage therapy.<\/p>","show_social":true,"social_heading":"Follow me on the 'Gram","social_url":"","social_image_1":"shopify:\/\/shop_images\/Screenshot_2026-07-22_at_6.52.25_PM.png","social_image_2":"shopify:\/\/shop_images\/zac-taheriyan-hZMfmBuCRkw-unsplash.jpg","social_image_3":"shopify:\/\/shop_images\/spa-tools-and-decorations.jpg","tile_colors":"#5B4373,#A9CC7B,#E8D8F8","bg":"#3f3f3d","mark_bg":"#e8d8f8","mark_color":"#5b4373","link_color":"#e4efd1","accent":"#a9cc7b","social_heading_color":"#e8d8f8"}}},"order":["footer"]}
