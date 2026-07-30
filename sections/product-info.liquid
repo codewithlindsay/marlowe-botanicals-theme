@@ -26,9 +26,9 @@
     {%- endif -%}
   </div>
 
-  <div>
+  <div class="mb-pdp__card" style="background:#FFFFFF;border-radius:24px;padding:clamp(28px,3.2vw,44px);">
     {%- if section.settings.eyebrow != blank or product.type != blank -%}
-      <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#A9CC7B;margin:0 0 12px;">{{ section.settings.eyebrow | default: product.type }}</p>
+      <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#5B4373;margin:0 0 12px;">{{ section.settings.eyebrow | default: product.type }}</p>
     {%- endif -%}
     <h1 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:52px;line-height:1;margin:0 0 14px;">{{ product.title | default: 'Lavender Calm Oil' }}</h1>
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
@@ -67,15 +67,15 @@
     {%- endform -%}
 
     <div style="display:flex;gap:22px;flex-wrap:wrap;margin-bottom:30px;font-family:'Space Mono',monospace;font-size:12px;color:#3F3F3D;">
-      <span><span style="color:#A9CC7B;">✦</span> Free shipping over $50</span>
-      <span><span style="color:#A9CC7B;">✦</span> Cruelty-free</span>
-      <span><span style="color:#A9CC7B;">✦</span> Small-batch</span>
+      <span><span style="color:#5B4373;">✦</span> Free shipping over $50</span>
+      <span><span style="color:#5B4373;">✦</span> Cruelty-free</span>
+      <span><span style="color:#5B4373;">✦</span> Small-batch</span>
     </div>
 
     <div style="max-width:460px;border-top:1px solid rgba(91,67,115,.2);">
       {%- for block in section.blocks -%}
         <details {{ block.shopify_attributes }} {% if forloop.first %}open{% endif %} style="border-bottom:1px solid rgba(91,67,115,.2);">
-          <summary class="mb-acc" style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:18px 2px;font-family:'Space Mono',monospace;font-size:14.5px;font-weight:700;color:#5B4373;">{{ block.settings.heading }}<span class="mb-acc-chev" style="color:#A9CC7B;transition:transform .25s;">▼</span></summary>
+          <summary class="mb-acc" style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:18px 2px;font-family:'Space Mono',monospace;font-size:14.5px;font-weight:700;color:#5B4373;">{{ block.settings.heading }}<span class="mb-acc-chev" style="color:#5B4373;transition:transform .25s;">▼</span></summary>
           <div style="color:#3F3F3D;font-size:14.5px;line-height:1.7;margin:0;padding:0 2px 18px;">
             {%- if block.settings.use_product_description and product.description != blank -%}{{ product.description }}{%- else -%}{{ block.settings.content }}{%- endif -%}
           </div>
