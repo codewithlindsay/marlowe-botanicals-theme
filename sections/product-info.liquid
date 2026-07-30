@@ -40,7 +40,7 @@
     {%- endif -%}
     <h1 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:52px;line-height:1;margin:0 0 14px;">{{ product.title | default: 'Lavender Calm Oil' }}</h1>
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
-      <span style="color:#5B4373;font-size:25px;letter-spacing:.14em;">★★★★★</span>
+      <span role="img" aria-label="Rated 5 out of 5 stars" style="color:#5B4373;font-size:25px;letter-spacing:.14em;">★★★★★</span>
       <span style="color:#3F3F3D;font-size:15px;">{{ section.settings.review_count }}</span>
     </div>
     <div id="mb-price" style="font-family:'DM Serif Display',serif;color:#5B4373;font-size:41px;margin-bottom:22px;">{{ current.price | money }}</div>
@@ -62,7 +62,7 @@
       <p style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#5B4373;margin:0 0 10px;">Quantity</p>
       <div style="display:flex;align-items:center;gap:0;border:2px solid #D8C4F0;border-radius:999px;width:fit-content;margin-bottom:26px;overflow:hidden;">
         <button type="button" id="mb-qty-dec" aria-label="Decrease" style="background:none;border:none;color:#5B4373;font-size:22px;width:44px;height:44px;cursor:pointer;">−</button>
-        <input type="number" name="quantity" id="mb-qty" value="1" min="1" style="width:44px;text-align:center;color:#5B4373;font-size:18px;font-weight:700;border:none;background:none;-moz-appearance:textfield;">
+        <input type="number" name="quantity" id="mb-qty" value="1" min="1" aria-label="Quantity" style="width:44px;text-align:center;color:#5B4373;font-size:18px;font-weight:700;border:none;background:none;-moz-appearance:textfield;">
         <button type="button" id="mb-qty-inc" aria-label="Increase" style="background:none;border:none;color:#5B4373;font-size:22px;width:44px;height:44px;cursor:pointer;">+</button>
       </div>
 

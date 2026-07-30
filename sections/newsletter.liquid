@@ -21,10 +21,10 @@
           <p style="text-align:center;color:#5B4373;font-size:16px;">{{ section.settings.success_text }}</p>
         {%- endif -%}
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <input type="text" name="contact[first_name]" placeholder="First name" style="font-family:'Space Mono',monospace;font-size:16px;color:#3F3F3D;background:#FFFFFF;border:1.5px solid #C9B3E8;border-radius:10px;padding:14px 16px;width:100%;">
-          <input type="text" name="contact[last_name]" placeholder="Last name" style="font-family:'Space Mono',monospace;font-size:16px;color:#3F3F3D;background:#FFFFFF;border:1.5px solid #C9B3E8;border-radius:10px;padding:14px 16px;width:100%;">
+          <input type="text" name="contact[first_name]" placeholder="First name" aria-label="First name" style="font-family:'Space Mono',monospace;font-size:16px;color:#3F3F3D;background:#FFFFFF;border:1.5px solid #C9B3E8;border-radius:10px;padding:14px 16px;width:100%;">
+          <input type="text" name="contact[last_name]" placeholder="Last name" aria-label="Last name" style="font-family:'Space Mono',monospace;font-size:16px;color:#3F3F3D;background:#FFFFFF;border:1.5px solid #C9B3E8;border-radius:10px;padding:14px 16px;width:100%;">
         </div>
-        <input type="email" name="contact[email]" required placeholder="Email address" style="font-family:'Space Mono',monospace;font-size:16px;color:#3F3F3D;background:#FFFFFF;border:1.5px solid #C9B3E8;border-radius:10px;padding:14px 16px;width:100%;">
+        <input type="email" name="contact[email]" required placeholder="Email address" aria-label="Email address" style="font-family:'Space Mono',monospace;font-size:16px;color:#3F3F3D;background:#FFFFFF;border:1.5px solid #C9B3E8;border-radius:10px;padding:14px 16px;width:100%;">
         <button type="submit" style="font-family:'Space Mono',monospace;font-size:16px;letter-spacing:.16em;text-transform:uppercase;color:#3F3F3D;background:#A9CC7B;border:none;border-radius:999px;padding:15px;cursor:pointer;margin-top:6px;">{{ section.settings.button_text }}</button>
       </div>
     {%- endform -%}

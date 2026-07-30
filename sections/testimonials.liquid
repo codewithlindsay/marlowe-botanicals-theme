@@ -8,7 +8,7 @@
     <div class="mb-cards mb-cards--3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
       {%- for block in section.blocks -%}
         <div {{ block.shopify_attributes }} style="background:#FFFFFF;border-radius:22px;padding:32px 30px;display:flex;flex-direction:column;gap:16px;">
-          <div style="color:#5B4373;font-size:18px;letter-spacing:.14em;">{% for i in (1..block.settings.stars) %}★{% endfor %}</div>
+          <div role="img" aria-label="Rated {{ block.settings.stars }} out of 5 stars" style="color:#5B4373;font-size:18px;letter-spacing:.14em;">{% for i in (1..block.settings.stars) %}★{% endfor %}</div>
           <p style="color:#3F3F3D;font-size:17px;line-height:1.7;margin:0;flex:1;">"{{ block.settings.quote }}"</p>
           <div>
             <div style="font-family:'DM Serif Display',serif;font-style:italic;color:#5B4373;font-size:22px;">{{ block.settings.name }}</div>

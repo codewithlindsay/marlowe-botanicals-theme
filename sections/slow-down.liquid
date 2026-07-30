@@ -15,7 +15,7 @@
       <p style="color:#3F3F3D;font-size:16px;line-height:1.7;margin:0 0 18px;">{{ section.settings.intro }}</p>
       <ul style="list-style:none;margin:0 0 28px;padding:0;display:flex;flex-direction:column;gap:14px;">
         {%- for block in section.blocks -%}
-          <li {{ block.shopify_attributes }} style="color:#3F3F3D;font-size:16px;line-height:1.6;padding-left:22px;position:relative;"><span style="position:absolute;left:0;top:0;color:{{ section.settings.bullet_color }};">✦</span>{{ block.settings.text }}</li>
+          <li {{ block.shopify_attributes }} style="color:#3F3F3D;font-size:16px;line-height:1.6;padding-left:22px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:0;color:{{ section.settings.bullet_color }};">✦</span>{{ block.settings.text }}</li>
         {%- endfor -%}
       </ul>
       {%- if section.settings.button_text != blank -%}
