@@ -60,7 +60,10 @@
       "settings": {
         "eyebrow": "Bestseller · Aromatherapy",
         "review_count": "128 reviews",
-        "bg": "#e8d8f8"
+        "bg": "#e8d8f8",
+        "show_flowers": true,
+        "show_wave": true,
+        "wave_color": "#e4efd1"
       }
     },
     "related-products": {
