@@ -1,26 +1,58 @@
-{%- comment -%} Marlowe — page hero (rich text banner, shared by About / Contact) {%- endcomment -%}
+{%- comment -%} Marlowe — page hero (centered, or homepage-style split) {%- endcomment -%}
 {%- capture petals -%}<g fill="#FFFFFF"><circle cx="20" cy="12" r="6.6"></circle><circle cx="28" cy="20" r="6.6"></circle><circle cx="20" cy="28" r="6.6"></circle><circle cx="12" cy="20" r="6.6"></circle></g><circle cx="20" cy="20" r="4.2" fill="#A9CC7B"></circle>{%- endcapture -%}
+{%- capture heading_html -%}{{ section.settings.heading }}{%- if section.settings.heading_italic != blank -%}{% if section.settings.italic_on_new_line %}<br>{% else %} {% endif %}<span style="font-style:italic;">{{ section.settings.heading_italic }}</span>{%- endif -%}{%- endcapture -%}
 <section data-section="page-hero" style="background:{{ section.settings.bg }};padding:{{ section.settings.padding_top }}px 44px {{ section.settings.padding_bottom }}px;position:relative;overflow:hidden;">
-  <div style="position:absolute;top:26px;left:36px;pointer-events:none;">
+  <div style="position:absolute;top:26px;left:36px;pointer-events:none;z-index:0;">
     <svg width="54" height="54" viewBox="0 0 40 40" style="display:block;">{{ petals }}</svg>
     <svg width="34" height="34" viewBox="0 0 40 40" style="display:block;margin:-6px 0 0 42px;">{{ petals }}</svg>
   </div>
   {%- if section.settings.show_flowers_br -%}
-  <div style="position:absolute;bottom:24px;right:40px;width:120px;height:104px;pointer-events:none;">
+  <div style="position:absolute;bottom:24px;right:40px;width:120px;height:104px;pointer-events:none;z-index:0;">
     <svg width="50" height="50" viewBox="0 0 40 40" style="position:absolute;right:0;bottom:0;">{{ petals }}</svg>
     <svg width="32" height="32" viewBox="0 0 40 40" style="position:absolute;right:52px;bottom:16px;">{{ petals }}</svg>
     <svg width="38" height="38" viewBox="0 0 40 40" style="position:absolute;right:24px;bottom:54px;">{{ petals }}</svg>
   </div>
   {%- endif -%}
-  <div style="max-width:820px;margin:0 auto;text-align:center;">
-    {%- if section.settings.eyebrow != blank -%}<p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#5B4373;margin:0 0 16px;">{{ section.settings.eyebrow }}</p>{%- endif -%}
-    <h1 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:clamp(44px,7vw,80px);line-height:.98;margin:0 0 22px;">{{ section.settings.heading }}{%- if section.settings.heading_italic != blank -%}{% if section.settings.italic_on_new_line %}<br>{% else %} {% endif %}<span style="font-style:italic;">{{ section.settings.heading_italic }}</span>{%- endif -%}</h1>
-    {%- if section.settings.body != blank -%}<p style="color:#5B4373;font-size:14px;line-height:1.8;margin:0 auto;max-width:520px;">{{ section.settings.body }}</p>{%- endif -%}
-  </div>
-  {%- if section.settings.tile_image != blank -%}
-    <div class="mb-pagehero__tile" style="position:absolute;right:70px;bottom:-28px;width:{{ section.settings.tile_size }}px;aspect-ratio:96/112;border-radius:20px;transform:rotate(-6deg);overflow:hidden;background:#5B4373;z-index:2;">
-      <img src="{{ section.settings.tile_image | image_url: width: 500 }}" alt="{{ section.settings.tile_image.alt | escape }}" loading="lazy" width="{{ section.settings.tile_image.width }}" height="{{ section.settings.tile_image.height }}" style="width:100%;height:100%;object-fit:cover;">
+
+  {%- if section.settings.layout == 'hero' -%}
+    <div class="mb-pagehero mb-pagehero--hero" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;">
+      <div class="mb-pagehero__text">
+        {%- if section.settings.eyebrow != blank -%}<p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#5B4373;margin:0 0 16px;">{{ section.settings.eyebrow }}</p>{%- endif -%}
+        <h1 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:clamp(46px,6vw,92px);line-height:.95;letter-spacing:-.01em;margin:0 0 22px;">{{ heading_html }}</h1>
+        {%- if section.settings.body != blank -%}<p style="color:#5B4373;font-size:14px;line-height:1.8;margin:0 0 8px;max-width:440px;">{{ section.settings.body }}</p>{%- endif -%}
+        {%- if section.settings.button_1_text != blank or section.settings.button_2_text != blank -%}
+          <div class="mb-pagehero__btns" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;">
+            {%- if section.settings.button_1_text != blank -%}<a href="{{ section.settings.button_1_link | default: '#' }}" style="display:inline-block;background:#5B4373;color:#FDF3EA;font-size:13px;letter-spacing:.16em;text-transform:uppercase;padding:16px 30px;border-radius:999px;">{{ section.settings.button_1_text }}</a>{%- endif -%}
+            {%- if section.settings.button_2_text != blank -%}<a href="{{ section.settings.button_2_link | default: '#' }}" style="display:inline-block;border:2px solid #5B4373;color:#5B4373;font-size:13px;letter-spacing:.16em;text-transform:uppercase;padding:15px 28px;border-radius:999px;">{{ section.settings.button_2_text }}</a>{%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+      <div class="mb-pagehero__media" style="position:relative;width:100%;max-width:{{ section.settings.image_size }}px;justify-self:center;">
+        <div style="width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#E4EFD1;display:flex;align-items:center;justify-content:center;background-image:repeating-linear-gradient(45deg,rgba(91,67,115,.09) 0 16px,transparent 16px 32px);">
+          {%- if section.settings.image != blank -%}
+            <img src="{{ section.settings.image | image_url: width: 1000 }}" alt="{{ section.settings.image.alt | escape }}" loading="eager" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" style="width:100%;height:100%;object-fit:cover;">
+          {%- else -%}
+            <span style="font-family:'Space Mono',monospace;font-size:12px;color:#5B4373;text-align:center;">hero image —<br>the studio</span>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.tile_image != blank -%}
+          <div class="mb-pagehero__tile2" style="position:absolute;left:-4%;bottom:8%;width:{{ section.settings.tile_size }}px;aspect-ratio:96/112;border-radius:20px;transform:rotate(-6deg);overflow:hidden;background:#5B4373;z-index:2;">
+            <img src="{{ section.settings.tile_image | image_url: width: 500 }}" alt="{{ section.settings.tile_image.alt | escape }}" loading="lazy" width="{{ section.settings.tile_image.width }}" height="{{ section.settings.tile_image.height }}" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        {%- endif -%}
+      </div>
     </div>
+  {%- else -%}
+    <div style="position:relative;z-index:1;max-width:820px;margin:0 auto;text-align:center;">
+      {%- if section.settings.eyebrow != blank -%}<p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#5B4373;margin:0 0 16px;">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h1 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:clamp(44px,7vw,80px);line-height:.98;margin:0 0 22px;">{{ heading_html }}</h1>
+      {%- if section.settings.body != blank -%}<p style="color:#5B4373;font-size:14px;line-height:1.8;margin:0 auto;max-width:520px;">{{ section.settings.body }}</p>{%- endif -%}
+    </div>
+    {%- if section.settings.tile_image != blank -%}
+      <div class="mb-pagehero__tile" style="position:absolute;right:70px;bottom:-28px;width:{{ section.settings.tile_size }}px;aspect-ratio:96/112;border-radius:20px;transform:rotate(-6deg);overflow:hidden;background:#5B4373;z-index:2;">
+        <img src="{{ section.settings.tile_image | image_url: width: 500 }}" alt="{{ section.settings.tile_image.alt | escape }}" loading="lazy" width="{{ section.settings.tile_image.width }}" height="{{ section.settings.tile_image.height }}" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    {%- endif -%}
   {%- endif -%}
 </section>
 {%- if section.settings.show_wave -%}
@@ -31,6 +63,10 @@
 
 <style>
   @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .mb-pagehero--hero { grid-template-columns: 1fr !important; gap: 36px !important; text-align: center; }
+    #shopify-section-{{ section.id }} .mb-pagehero--hero .mb-pagehero__text p { margin-left: auto; margin-right: auto; }
+    #shopify-section-{{ section.id }} .mb-pagehero__btns { justify-content: center; }
+    #shopify-section-{{ section.id }} .mb-pagehero__media { max-width: 340px !important; }
     #shopify-section-{{ section.id }} .mb-pagehero__tile { right: 20px !important; bottom: -18px !important; width: 96px !important; }
   }
 </style>
@@ -41,6 +77,16 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "centered",
+      "options": [
+        { "value": "centered", "label": "Centered" },
+        { "value": "hero", "label": "Homepage-style (text left, photo right)" }
+      ]
+    },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our story" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Slow beauty," },
     { "type": "text", "id": "heading_italic", "label": "Heading (italic part)", "default": "made by hand" },
@@ -50,8 +96,15 @@
     { "type": "range", "id": "padding_top", "min": 40, "max": 120, "step": 4, "unit": "px", "label": "Padding top", "default": 76 },
     { "type": "range", "id": "padding_bottom", "min": 40, "max": 120, "step": 4, "unit": "px", "label": "Padding bottom", "default": 88 },
     { "type": "checkbox", "id": "show_flowers_br", "label": "Show flower cluster (bottom right)", "default": true },
-    { "type": "header", "content": "Floating photo tile (bottom right)" },
-    { "type": "image_picker", "id": "tile_image", "label": "Tile image", "info": "Optional. Only shows when an image is set." },
+    { "type": "header", "content": "Homepage-style layout" },
+    { "type": "image_picker", "id": "image", "label": "Circle photo (right)" },
+    { "type": "range", "id": "image_size", "min": 260, "max": 620, "step": 4, "unit": "px", "label": "Circle size (max)", "default": 460 },
+    { "type": "text", "id": "button_1_text", "label": "Button 1 text", "info": "Leave blank to hide." },
+    { "type": "url", "id": "button_1_link", "label": "Button 1 link" },
+    { "type": "text", "id": "button_2_text", "label": "Button 2 text", "info": "Leave blank to hide." },
+    { "type": "url", "id": "button_2_link", "label": "Button 2 link" },
+    { "type": "header", "content": "Floating photo tile" },
+    { "type": "image_picker", "id": "tile_image", "label": "Tile image", "info": "Optional. Overlaps the circle (homepage layout) or sits bottom-right (centered layout)." },
     { "type": "range", "id": "tile_size", "min": 90, "max": 260, "step": 2, "unit": "px", "label": "Tile width", "default": 150 },
     { "type": "header", "content": "Bottom wave" },
     { "type": "checkbox", "id": "show_wave", "label": "Show bottom wave", "default": true },

@@ -3,10 +3,11 @@
     "page-hero": {
       "type": "page-hero",
       "settings": {
+        "layout": "hero",
         "eyebrow": "Bookings",
         "heading": "Book your",
         "heading_italic": "session",
-        "italic_on_new_line": false,
+        "italic_on_new_line": true,
         "body": "Tell me a little about what you need and when works for you. I'll confirm your appointment by email within one business day.",
         "bg": "#E8D8F8",
         "padding_top": 72,
