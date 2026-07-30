@@ -2,12 +2,12 @@
 <section data-section="services" style="background:{{ section.settings.bg }};padding:80px 44px;">
   <div class="mb-services" style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:.72fr 1fr .78fr;gap:44px;align-items:center;">
     <div>
-      <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:44px;line-height:1.05;margin:0 0 20px;">{{ section.settings.heading }}</h2>
-      <p style="color:#3F3F3D;font-size:14.5px;line-height:1.75;margin:0;max-width:280px;">{{ section.settings.intro }}</p>
+      <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:49px;line-height:1.05;margin:0 0 20px;">{{ section.settings.heading }}</h2>
+      <p style="color:#3F3F3D;font-size:16px;line-height:1.75;margin:0;max-width:280px;">{{ section.settings.intro }}</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:16px;">
       {%- for block in section.blocks -%}
-        <a {{ block.shopify_attributes }} href="{{ block.settings.link | default: '#' }}" style="display:block;text-align:center;background:{{ block.settings.bg }};color:{{ block.settings.text_color }};font-family:'DM Serif Display',serif;font-style:italic;font-size:28px;padding:20px;border-radius:16px;">{{ block.settings.label }}</a>
+        <a {{ block.shopify_attributes }} href="{{ block.settings.link | default: '#' }}" style="display:block;text-align:center;background:{{ block.settings.bg }};color:{{ block.settings.text_color }};font-family:'DM Serif Display',serif;font-style:italic;font-size:31px;padding:20px;border-radius:16px;">{{ block.settings.label }}</a>
       {%- endfor -%}
     </div>
     <div style="position:relative;">
@@ -15,14 +15,14 @@
         {%- if section.settings.image != blank -%}
           <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" style="width:100%;height:100%;object-fit:cover;">
         {%- else -%}
-          <span style="font-family:'Space Mono',monospace;font-size:13px;color:#5B4373;text-align:center;">Massage in session</span>
+          <span style="font-family:'Space Mono',monospace;font-size:15px;color:#5B4373;text-align:center;">Massage in session</span>
         {%- endif -%}
       </div>
       <div class="mb-services__tag" style="position:absolute;bottom:-20px;left:-22px;width:{{ section.settings.tag_size }}px;aspect-ratio:96/112;border-radius:16px;transform:rotate(-10deg);background:#5B4373;background-image:repeating-linear-gradient(-45deg,rgba(224,203,245,.16) 0 9px,transparent 9px 18px);display:flex;align-items:center;justify-content:center;overflow:hidden;">
         {%- if section.settings.tag_image != blank -%}
           <img src="{{ section.settings.tag_image | image_url: width: 400 }}" alt="{{ section.settings.tag_image.alt | escape }}" loading="lazy" width="{{ section.settings.tag_image.width }}" height="{{ section.settings.tag_image.height }}" style="width:100%;height:100%;object-fit:cover;">
         {%- else -%}
-          <span style="font-family:'Space Mono',monospace;font-size:11px;color:#E8D8F8;text-align:center;">{{ section.settings.tag_text }}</span>
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#E8D8F8;text-align:center;">{{ section.settings.tag_text }}</span>
         {%- endif -%}
       </div>
     </div>

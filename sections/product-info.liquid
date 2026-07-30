@@ -20,7 +20,7 @@
       {%- if product.featured_media -%}
         <img id="mb-main-image" src="{{ product.featured_media | image_url: width: 1200 }}" alt="{{ product.title | escape }}" width="{{ product.featured_media.preview_image.width }}" height="{{ product.featured_media.preview_image.height }}" style="width:100%;height:100%;object-fit:cover;">
       {%- else -%}
-        <span style="font-family:'Space Mono',monospace;font-size:14.5px;color:#5B4373;text-align:center;">main product shot<br>— {{ product.title | default: 'Lavender Calm Oil' }}</span>
+        <span style="font-family:'Space Mono',monospace;font-size:16px;color:#5B4373;text-align:center;">main product shot<br>— {{ product.title | default: 'Lavender Calm Oil' }}</span>
       {%- endif -%}
     </div>
     {%- if product.media.size > 1 -%}
@@ -36,45 +36,45 @@
 
   <div class="mb-pdp__info">
     {%- if section.settings.eyebrow != blank or product.type != blank -%}
-      <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#5B4373;margin:0 0 12px;">{{ section.settings.eyebrow | default: product.type }}</p>
+      <p style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#5B4373;margin:0 0 12px;">{{ section.settings.eyebrow | default: product.type }}</p>
     {%- endif -%}
     <h1 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:52px;line-height:1;margin:0 0 14px;">{{ product.title | default: 'Lavender Calm Oil' }}</h1>
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
-      <span style="color:#5B4373;font-size:22px;letter-spacing:.14em;">★★★★★</span>
-      <span style="color:#3F3F3D;font-size:13px;">{{ section.settings.review_count }}</span>
+      <span style="color:#5B4373;font-size:25px;letter-spacing:.14em;">★★★★★</span>
+      <span style="color:#3F3F3D;font-size:15px;">{{ section.settings.review_count }}</span>
     </div>
-    <div id="mb-price" style="font-family:'DM Serif Display',serif;color:#5B4373;font-size:37px;margin-bottom:22px;">{{ current.price | money }}</div>
-    <div style="color:#3F3F3D;font-size:15.5px;line-height:1.75;margin:0 0 30px;max-width:440px;">
+    <div id="mb-price" style="font-family:'DM Serif Display',serif;color:#5B4373;font-size:41px;margin-bottom:22px;">{{ current.price | money }}</div>
+    <div style="color:#3F3F3D;font-size:17px;line-height:1.75;margin:0 0 30px;max-width:440px;">
       {%- if product.description != blank -%}{{ product.description }}{%- else -%}A single-note lavender oil distilled from organically grown buds. Calming, floral, and clean — a few drops to ease into sleep or soften a tense evening.{%- endif -%}
     </div>
 
     {%- form 'product', product, id: 'mb-product-form' -%}
       {%- unless product.has_only_default_variant -%}
-        <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#5B4373;margin:0 0 10px;">{{ product.options.first | default: 'Size' }}</p>
+        <p style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#5B4373;margin:0 0 10px;">{{ product.options.first | default: 'Size' }}</p>
         <div class="mb-sizes" style="display:flex;gap:12px;margin-bottom:26px;flex-wrap:wrap;">
           {%- for variant in product.variants -%}
-            <button type="button" class="mb-size{% if variant.id == current.id %} is-selected{% endif %}" data-id="{{ variant.id }}" data-price="{{ variant.price | money }}" {% unless variant.available %}data-unavailable="true"{% endunless %} style="text-align:center;padding:13px 18px;border-radius:10px;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.04em;cursor:pointer;transition:all .15s;">{{ variant.title }}</button>
+            <button type="button" class="mb-size{% if variant.id == current.id %} is-selected{% endif %}" data-id="{{ variant.id }}" data-price="{{ variant.price | money }}" {% unless variant.available %}data-unavailable="true"{% endunless %} style="text-align:center;padding:13px 18px;border-radius:10px;font-family:'Space Mono',monospace;font-size:15px;letter-spacing:.04em;cursor:pointer;transition:all .15s;">{{ variant.title }}</button>
           {%- endfor -%}
         </div>
       {%- endunless -%}
       <input type="hidden" name="id" id="mb-variant-id" value="{{ current.id }}">
 
-      <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#5B4373;margin:0 0 10px;">Quantity</p>
+      <p style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#5B4373;margin:0 0 10px;">Quantity</p>
       <div style="display:flex;align-items:center;gap:0;border:2px solid #D8C4F0;border-radius:999px;width:fit-content;margin-bottom:26px;overflow:hidden;">
-        <button type="button" id="mb-qty-dec" aria-label="Decrease" style="background:none;border:none;color:#5B4373;font-size:20px;width:44px;height:44px;cursor:pointer;">−</button>
-        <input type="number" name="quantity" id="mb-qty" value="1" min="1" style="width:44px;text-align:center;color:#5B4373;font-size:16.5px;font-weight:700;border:none;background:none;-moz-appearance:textfield;">
-        <button type="button" id="mb-qty-inc" aria-label="Increase" style="background:none;border:none;color:#5B4373;font-size:20px;width:44px;height:44px;cursor:pointer;">+</button>
+        <button type="button" id="mb-qty-dec" aria-label="Decrease" style="background:none;border:none;color:#5B4373;font-size:22px;width:44px;height:44px;cursor:pointer;">−</button>
+        <input type="number" name="quantity" id="mb-qty" value="1" min="1" style="width:44px;text-align:center;color:#5B4373;font-size:18px;font-weight:700;border:none;background:none;-moz-appearance:textfield;">
+        <button type="button" id="mb-qty-inc" aria-label="Increase" style="background:none;border:none;color:#5B4373;font-size:22px;width:44px;height:44px;cursor:pointer;">+</button>
       </div>
 
       <div style="display:flex;flex-direction:column;gap:12px;max-width:440px;margin-bottom:26px;">
-        <button type="submit" name="add" {% unless current.available %}disabled{% endunless %} style="background:#5B4373;color:#FDF3EA;border:none;font-size:14.5px;letter-spacing:.16em;text-transform:uppercase;padding:17px;border-radius:999px;cursor:pointer;">
+        <button type="submit" name="add" {% unless current.available %}disabled{% endunless %} style="background:#5B4373;color:#FDF3EA;border:none;font-size:16px;letter-spacing:.16em;text-transform:uppercase;padding:17px;border-radius:999px;cursor:pointer;">
           <span id="mb-atc-label">{% if current.available %}Add to cart · {{ current.price | money }}{% else %}Sold out{% endif %}</span>
         </button>
         {{ form | payment_button }}
       </div>
     {%- endform -%}
 
-    <div style="display:flex;gap:22px;flex-wrap:wrap;margin-bottom:30px;font-family:'Space Mono',monospace;font-size:12px;color:#3F3F3D;">
+    <div style="display:flex;gap:22px;flex-wrap:wrap;margin-bottom:30px;font-family:'Space Mono',monospace;font-size:13px;color:#3F3F3D;">
       <span><span style="color:#5B4373;">✦</span> Free shipping over $50</span>
       <span><span style="color:#5B4373;">✦</span> Cruelty-free</span>
       <span><span style="color:#5B4373;">✦</span> Small-batch</span>
@@ -83,8 +83,8 @@
     <div style="max-width:460px;border-top:1px solid rgba(91,67,115,.2);">
       {%- for block in section.blocks -%}
         <details {{ block.shopify_attributes }} {% if forloop.first %}open{% endif %} style="border-bottom:1px solid rgba(91,67,115,.2);">
-          <summary class="mb-acc" style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:18px 2px;font-family:'Space Mono',monospace;font-size:14.5px;font-weight:700;color:#5B4373;">{{ block.settings.heading }}<span class="mb-acc-chev" style="color:#5B4373;transition:transform .25s;">▼</span></summary>
-          <div style="color:#3F3F3D;font-size:14.5px;line-height:1.7;margin:0;padding:0 2px 18px;">
+          <summary class="mb-acc" style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:18px 2px;font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:#5B4373;">{{ block.settings.heading }}<span class="mb-acc-chev" style="color:#5B4373;transition:transform .25s;">▼</span></summary>
+          <div style="color:#3F3F3D;font-size:16px;line-height:1.7;margin:0;padding:0 2px 18px;">
             {%- if block.settings.use_product_description and product.description != blank -%}{{ product.description }}{%- else -%}{{ block.settings.content }}{%- endif -%}
           </div>
         </details>
@@ -114,7 +114,7 @@
     color: #3F3F3D !important;
     border-radius: 999px !important;
     font-family: 'Space Mono', monospace !important;
-    font-size: 13px !important;
+    font-size:15px !important;
     letter-spacing: .16em !important;
     text-transform: uppercase !important;
     min-height: 54px !important;

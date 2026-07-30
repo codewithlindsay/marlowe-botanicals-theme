@@ -1,7 +1,7 @@
 {%- comment -%} Marlowe — related products ("Pairs well with") {%- endcomment -%}
 <section data-section="related-products" style="background:{{ section.settings.bg }};padding:72px 44px;">
   <div style="max-width:1180px;margin:0 auto;">
-    <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:37px;margin:0 0 32px;text-align:center;">{{ section.settings.heading }}</h2>
+    <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:41px;margin:0 0 32px;text-align:center;">{{ section.settings.heading }}</h2>
     <div class="mb-cards mb-cards--3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
       {%- assign shown = 0 -%}
       {%- assign source = product.collections.first.products | default: section.settings.collection.products -%}
@@ -12,11 +12,11 @@
           {%- assign shown = shown | plus: 1 -%}
           <a href="{{ p.url }}" style="background:#FFFFFF;border-radius:20px;padding:16px 16px 22px;display:flex;flex-direction:column;color:#5B4373;">
             <div style="border-radius:14px;aspect-ratio:.9;overflow:hidden;background:#D9E8C0;display:flex;align-items:center;justify-content:center;background-image:repeating-linear-gradient(45deg,rgba(91,67,115,.07) 0 12px,transparent 12px 24px);margin-bottom:16px;">
-              {%- if p.featured_image -%}<img src="{{ p.featured_image | image_url: width: 600 }}" alt="{{ p.title | escape }}" loading="lazy" width="{{ p.featured_image.width }}" height="{{ p.featured_image.height }}" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-family:'Space Mono',monospace;font-size:12px;color:#5B4373;">product shot</span>{%- endif -%}
+              {%- if p.featured_image -%}<img src="{{ p.featured_image | image_url: width: 600 }}" alt="{{ p.title | escape }}" loading="lazy" width="{{ p.featured_image.width }}" height="{{ p.featured_image.height }}" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-family:'Space Mono',monospace;font-size:13px;color:#5B4373;">product shot</span>{%- endif -%}
             </div>
-            <h3 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:22px;margin:0 0 6px;">{{ p.title }}</h3>
-            <p style="color:#3F3F3D;font-size:13px;line-height:1.55;margin:0 0 16px;flex:1;">{{ p.description | strip_html | truncatewords: 12 }}</p>
-            <span style="color:#5B4373;font-family:'Space Mono',monospace;font-weight:700;font-size:16.5px;">{{ p.price | money }}</span>
+            <h3 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:25px;margin:0 0 6px;">{{ p.title }}</h3>
+            <p style="color:#3F3F3D;font-size:15px;line-height:1.55;margin:0 0 16px;flex:1;">{{ p.description | strip_html | truncatewords: 12 }}</p>
+            <span style="color:#5B4373;font-family:'Space Mono',monospace;font-weight:700;font-size:18px;">{{ p.price | money }}</span>
           </a>
         {%- endfor -%}
       {%- endif -%}
@@ -25,10 +25,10 @@
         {%- for f in fallbacks -%}
           {%- assign parts = f | split: '|' -%}
           <a href="#" style="background:#FFFFFF;border-radius:20px;padding:16px 16px 22px;display:flex;flex-direction:column;color:#5B4373;">
-            <div style="border-radius:14px;aspect-ratio:.9;background:{{ parts[3] }};display:flex;align-items:center;justify-content:center;background-image:repeating-linear-gradient(45deg,rgba(91,67,115,.07) 0 12px,transparent 12px 24px);margin-bottom:16px;"><span style="font-family:'Space Mono',monospace;font-size:12px;color:#5B4373;">product shot</span></div>
-            <h3 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:22px;margin:0 0 6px;">{{ parts[0] }}</h3>
-            <p style="color:#3F3F3D;font-size:13px;line-height:1.55;margin:0 0 16px;flex:1;">{{ parts[1] }}</p>
-            <span style="color:#5B4373;font-family:'Space Mono',monospace;font-weight:700;font-size:16.5px;">{{ parts[2] }}</span>
+            <div style="border-radius:14px;aspect-ratio:.9;background:{{ parts[3] }};display:flex;align-items:center;justify-content:center;background-image:repeating-linear-gradient(45deg,rgba(91,67,115,.07) 0 12px,transparent 12px 24px);margin-bottom:16px;"><span style="font-family:'Space Mono',monospace;font-size:13px;color:#5B4373;">product shot</span></div>
+            <h3 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:25px;margin:0 0 6px;">{{ parts[0] }}</h3>
+            <p style="color:#3F3F3D;font-size:15px;line-height:1.55;margin:0 0 16px;flex:1;">{{ parts[1] }}</p>
+            <span style="color:#5B4373;font-family:'Space Mono',monospace;font-weight:700;font-size:18px;">{{ parts[2] }}</span>
           </a>
         {%- endfor -%}
       {%- endif -%}

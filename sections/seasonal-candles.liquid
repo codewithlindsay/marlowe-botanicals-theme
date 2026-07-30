@@ -2,9 +2,9 @@
 <section data-section="seasonal-candles" style="background:{{ section.settings.bg }};padding:82px 44px;">
   <div style="max-width:1000px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:40px;">
-      {%- if section.settings.eyebrow != blank -%}<span style="display:inline-block;background:#5B4373;color:#FDF3EA;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:18px;">{{ section.settings.eyebrow }}</span>{%- endif -%}
-      <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:44px;line-height:1.05;margin:0 0 14px;">{{ section.settings.heading }}</h2>
-      <p style="color:#3F3F3D;font-size:14.5px;line-height:1.7;margin:0 auto;max-width:460px;">{{ section.settings.subheading }}</p>
+      {%- if section.settings.eyebrow != blank -%}<span style="display:inline-block;background:#5B4373;color:#FDF3EA;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:18px;">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:49px;line-height:1.05;margin:0 0 14px;">{{ section.settings.heading }}</h2>
+      <p style="color:#3F3F3D;font-size:16px;line-height:1.7;margin:0 auto;max-width:460px;">{{ section.settings.subheading }}</p>
     </div>
     {%- assign coll = section.settings.collection -%}
     {%- if coll != blank and coll.products.size > 0 -%}
@@ -17,20 +17,20 @@
                 <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title | escape }}" loading="lazy" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
               {%- endif -%}
               {%- if section.settings.card_badge != blank -%}
-                <span style="position:absolute;top:12px;left:12px;background:#5B4373;color:#FDF3EA;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;">{{ section.settings.card_badge }}</span>
+                <span style="position:absolute;top:12px;left:12px;background:#5B4373;color:#FDF3EA;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;">{{ section.settings.card_badge }}</span>
               {%- endif -%}
             </a>
-            <a href="{{ product.url }}" style="color:#5B4373;"><h3 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:23px;margin:0 0 6px;">{{ product.title }}</h3></a>
-            <p style="color:#3F3F3D;font-size:13px;line-height:1.55;margin:0 0 18px;flex:1;">{{ product.description | strip_html | truncatewords: 12 }}</p>
+            <a href="{{ product.url }}" style="color:#5B4373;"><h3 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:26px;margin:0 0 6px;">{{ product.title }}</h3></a>
+            <p style="color:#3F3F3D;font-size:15px;line-height:1.55;margin:0 0 18px;flex:1;">{{ product.description | strip_html | truncatewords: 12 }}</p>
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
-              <span style="color:#5B4373;font-family:'Space Mono',monospace;font-weight:700;font-size:16.5px;">{{ product.price | money }}</span>
+              <span style="color:#5B4373;font-family:'Space Mono',monospace;font-weight:700;font-size:18px;">{{ product.price | money }}</span>
               {%- if product.has_only_default_variant and v.available -%}
                 {%- form 'product', product -%}
                   <input type="hidden" name="id" value="{{ v.id }}">
-                  <button type="submit" name="add" style="background:#5B4373;color:#FDF3EA;border:none;cursor:pointer;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;border-radius:999px;">{{ section.settings.button_label }}</button>
+                  <button type="submit" name="add" style="background:#5B4373;color:#FDF3EA;border:none;cursor:pointer;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;border-radius:999px;">{{ section.settings.button_label }}</button>
                 {%- endform -%}
               {%- else -%}
-                <a href="{{ product.url }}" style="background:#5B4373;color:#FDF3EA;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;border-radius:999px;">{% if v.available %}{{ section.settings.button_label }}{% else %}Sold out{% endif %}</a>
+                <a href="{{ product.url }}" style="background:#5B4373;color:#FDF3EA;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;border-radius:999px;">{% if v.available %}{{ section.settings.button_label }}{% else %}Sold out{% endif %}</a>
               {%- endif -%}
             </div>
           </div>
@@ -45,14 +45,14 @@
                 <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
               {%- endif -%}
               {%- if block.settings.badge != blank -%}
-                <span style="position:absolute;top:12px;left:12px;background:#5B4373;color:#FDF3EA;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;">{{ block.settings.badge }}</span>
+                <span style="position:absolute;top:12px;left:12px;background:#5B4373;color:#FDF3EA;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;">{{ block.settings.badge }}</span>
               {%- endif -%}
             </div>
-            <h3 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:23px;margin:0 0 6px;">{{ block.settings.title }}</h3>
-            <p style="color:#3F3F3D;font-size:13px;line-height:1.55;margin:0 0 18px;flex:1;">{{ block.settings.description }}</p>
+            <h3 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:26px;margin:0 0 6px;">{{ block.settings.title }}</h3>
+            <p style="color:#3F3F3D;font-size:15px;line-height:1.55;margin:0 0 18px;flex:1;">{{ block.settings.description }}</p>
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
-              <span style="color:#5B4373;font-family:'Space Mono',monospace;font-weight:700;font-size:16.5px;">{{ block.settings.price }}</span>
-              <a href="{{ block.settings.link | default: '#' }}" style="background:#5B4373;color:#FDF3EA;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;border-radius:999px;">{{ section.settings.button_label }}</a>
+              <span style="color:#5B4373;font-family:'Space Mono',monospace;font-weight:700;font-size:18px;">{{ block.settings.price }}</span>
+              <a href="{{ block.settings.link | default: '#' }}" style="background:#5B4373;color:#FDF3EA;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;border-radius:999px;">{{ section.settings.button_label }}</a>
             </div>
           </div>
         {%- endfor -%}

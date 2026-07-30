@@ -1,14 +1,14 @@
 {%- comment -%} Marlowe — FAQ (collapsible content, two columns) {%- endcomment -%}
 <section data-section="faq" style="background:{{ section.settings.bg }};padding:80px 44px 96px;">
   <div style="max-width:620px;margin:0 auto 48px;text-align:center;">
-    <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#FFFFFF;font-size:41px;line-height:1.1;margin:0 0 18px;">{{ section.settings.heading }}</h2>
-    <p style="color:#FFFFFF;font-size:14.5px;line-height:1.7;margin:0;">{{ section.settings.intro }}</p>
+    <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#FFFFFF;font-size:46px;line-height:1.1;margin:0 0 18px;">{{ section.settings.heading }}</h2>
+    <p style="color:#FFFFFF;font-size:16px;line-height:1.7;margin:0;">{{ section.settings.intro }}</p>
   </div>
   <div class="mb-faq" style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:0 56px;">
     {%- for block in section.blocks -%}
       <details {{ block.shopify_attributes }} {% if block.settings.open %}open{% endif %} class="mb-faq__item" style="border-bottom:1px solid rgba(224,203,245,.28);height:fit-content;">
-        <summary class="mb-faq__q" style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 2px;font-family:'Space Mono',monospace;font-size:16.5px;font-weight:700;color:#FDF3EA;">{{ block.settings.question }}<span class="mb-faq__chev" style="color:#A9CC7B;font-size:14.5px;transition:transform .25s;">▼</span></summary>
-        <p style="color:#E8D8F8;font-size:14.5px;line-height:1.7;margin:0;padding:0 2px 22px;">{{ block.settings.answer }}</p>
+        <summary class="mb-faq__q" style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 2px;font-family:'Space Mono',monospace;font-size:18px;font-weight:700;color:#FDF3EA;">{{ block.settings.question }}<span class="mb-faq__chev" style="color:#A9CC7B;font-size:16px;transition:transform .25s;">▼</span></summary>
+        <p style="color:#E8D8F8;font-size:16px;line-height:1.7;margin:0;padding:0 2px 22px;">{{ block.settings.answer }}</p>
       </details>
     {%- endfor -%}
   </div>
