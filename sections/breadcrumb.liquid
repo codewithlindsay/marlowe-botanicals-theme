@@ -1,12 +1,14 @@
 {%- comment -%} Marlowe — breadcrumb {%- endcomment -%}
-<div data-section="breadcrumb" style="max-width:1180px;margin:0 auto;padding:22px 44px 0;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#5B4373;">
-  <a href="{{ routes.root_url }}" style="color:#5B4373;">Home</a> /
-  {%- if product.collections.first -%}
-    <a href="{{ product.collections.first.url }}" style="color:#5B4373;">{{ product.collections.first.title }}</a> /
-  {%- else -%}
-    <a href="{{ routes.all_products_collection_url }}" style="color:#5B4373;">Shop</a> /
-  {%- endif -%}
-  <span style="color:#3F3F3D;">{{ product.title | default: 'Product' }}</span>
+<div data-section="breadcrumb" style="background:{{ section.settings.bg }};">
+  <div style="max-width:1180px;margin:0 auto;padding:22px 44px 0;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#5B4373;">
+    <a href="{{ routes.root_url }}" style="color:#5B4373;">Home</a> /
+    {%- if product.collections.first -%}
+      <a href="{{ product.collections.first.url }}" style="color:#5B4373;">{{ product.collections.first.title }}</a> /
+    {%- else -%}
+      <a href="{{ routes.all_products_collection_url }}" style="color:#5B4373;">Shop</a> /
+    {%- endif -%}
+    <span style="color:#3F3F3D;">{{ product.title | default: 'Product' }}</span>
+  </div>
 </div>
 
 {% schema %}
@@ -14,7 +16,9 @@
   "name": "Breadcrumb",
   "tag": "section",
   "class": "section",
-  "settings": [],
+  "settings": [
+    { "type": "color", "id": "bg", "label": "Background", "info": "Set this to match the Product info background.", "default": "#E8D8F8" }
+  ],
   "presets": [{ "name": "Breadcrumb" }]
 }
 {% endschema %}
