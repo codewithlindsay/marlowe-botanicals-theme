@@ -2,17 +2,17 @@
 <section data-section="testimonials" style="background:{{ section.settings.bg }};padding:24px 44px 88px;">
   <div style="max-width:1180px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:40px;">
-      {%- if section.settings.eyebrow != blank -%}<p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#A9CC7B;margin:0 0 10px;">{{ section.settings.eyebrow }}</p>{%- endif -%}
-      <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:40px;line-height:1.05;margin:0;">{{ section.settings.heading }}</h2>
+      {%- if section.settings.eyebrow != blank -%}<p style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#A9CC7B;margin:0 0 10px;">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:44px;line-height:1.05;margin:0;">{{ section.settings.heading }}</h2>
     </div>
     <div class="mb-cards mb-cards--3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
       {%- for block in section.blocks -%}
         <div {{ block.shopify_attributes }} style="background:#FFFFFF;border-radius:22px;padding:32px 30px;display:flex;flex-direction:column;gap:16px;">
-          <div style="color:#5B4373;font-size:15px;letter-spacing:.14em;">{% for i in (1..block.settings.stars) %}★{% endfor %}</div>
-          <p style="color:#3F3F3D;font-size:14px;line-height:1.7;margin:0;flex:1;">"{{ block.settings.quote }}"</p>
+          <div style="color:#5B4373;font-size:16.5px;letter-spacing:.14em;">{% for i in (1..block.settings.stars) %}★{% endfor %}</div>
+          <p style="color:#3F3F3D;font-size:15.5px;line-height:1.7;margin:0;flex:1;">"{{ block.settings.quote }}"</p>
           <div>
-            <div style="font-family:'DM Serif Display',serif;font-style:italic;color:#5B4373;font-size:18px;">{{ block.settings.name }}</div>
-            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#3F3F3D;margin-top:2px;">{{ block.settings.role }}</div>
+            <div style="font-family:'DM Serif Display',serif;font-style:italic;color:#5B4373;font-size:20px;">{{ block.settings.name }}</div>
+            <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#3F3F3D;margin-top:2px;">{{ block.settings.role }}</div>
           </div>
         </div>
       {%- endfor -%}

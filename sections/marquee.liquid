@@ -2,7 +2,7 @@
 {%- assign parts = section.settings.text | split: '✦' -%}
 {%- capture strip -%}
   {%- for p in parts -%}
-    <span style="font-family:'DM Serif Display',serif;font-style:italic;font-size:22px;color:{{ section.settings.text_color }};">{{ p | strip }}</span>&nbsp;&nbsp;<span style="color:{{ section.settings.accent }};">✦</span>&nbsp;&nbsp;
+    <span style="font-family:'DM Serif Display',serif;font-style:italic;font-size:24px;color:{{ section.settings.text_color }};">{{ p | strip }}</span>&nbsp;&nbsp;<span style="color:{{ section.settings.accent }};">✦</span>&nbsp;&nbsp;
   {%- endfor -%}
 {%- endcapture -%}
 <div data-section="marquee" style="background:{{ section.settings.bg }};padding:16px 0;overflow:hidden;white-space:nowrap;">

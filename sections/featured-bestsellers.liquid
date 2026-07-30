@@ -2,10 +2,10 @@
 <section data-section="featured-bestsellers" style="background:{{ section.settings.bg }};padding:8px 44px 94px;position:relative;">
   <div style="max-width:1180px;margin:0 auto;">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:32px;">
-      <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:40px;line-height:1;margin:0;">{{ section.settings.heading }}</h2>
+      <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:44px;line-height:1;margin:0;">{{ section.settings.heading }}</h2>
       <div style="display:flex;align-items:center;gap:0;">
         <svg width="30" height="30" viewBox="0 0 40 40" style="display:block;margin:-6px 34px 0 0;"><g fill="#FFFFFF"><circle cx="20" cy="12" r="6.6"></circle><circle cx="28" cy="20" r="6.6"></circle><circle cx="20" cy="28" r="6.6"></circle><circle cx="12" cy="20" r="6.6"></circle></g><circle cx="20" cy="20" r="4.2" fill="#A9CC7B"></circle></svg>
-        {%- if section.settings.link_text != blank -%}<a href="{{ section.settings.link_url | default: '#' }}" style="color:#5B4373;font-size:12px;letter-spacing:.16em;text-transform:uppercase;border-bottom:2px solid #5B4373;padding-bottom:3px;">{{ section.settings.link_text }}</a>{%- endif -%}
+        {%- if section.settings.link_text != blank -%}<a href="{{ section.settings.link_url | default: '#' }}" style="color:#5B4373;font-size:13px;letter-spacing:.16em;text-transform:uppercase;border-bottom:2px solid #5B4373;padding-bottom:3px;">{{ section.settings.link_text }}</a>{%- endif -%}
       </div>
     </div>
     <div class="mb-cards mb-cards--4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;">
@@ -19,11 +19,11 @@
               <span style="position:absolute;top:12px;left:12px;background:{{ block.settings.badge_bg }};color:{{ block.settings.badge_color }};font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;">{{ block.settings.badge }}</span>
             {%- endif -%}
           </div>
-          <h3 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:20px;margin:0 0 6px;">{{ block.settings.title }}</h3>
-          <p style="color:#3F3F3D;font-size:12px;line-height:1.55;margin:0 0 16px;flex:1;">{{ block.settings.description }}</p>
+          <h3 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:22px;margin:0 0 6px;">{{ block.settings.title }}</h3>
+          <p style="color:#3F3F3D;font-size:13px;line-height:1.55;margin:0 0 16px;flex:1;">{{ block.settings.description }}</p>
           <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
-            <span style="color:#5B4373;font-family:'Space Mono',monospace;font-weight:700;font-size:15px;">{{ block.settings.price }}</span>
-            <a href="{{ block.settings.link | default: '#' }}" style="background:#5B4373;color:#FDF3EA;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;border-radius:999px;">{{ section.settings.button_label }}</a>
+            <span style="color:#5B4373;font-family:'Space Mono',monospace;font-weight:700;font-size:16.5px;">{{ block.settings.price }}</span>
+            <a href="{{ block.settings.link | default: '#' }}" style="background:#5B4373;color:#FDF3EA;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;border-radius:999px;">{{ section.settings.button_label }}</a>
           </div>
         </div>
       {%- endfor -%}

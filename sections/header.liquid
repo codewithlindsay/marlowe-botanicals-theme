@@ -7,7 +7,7 @@
       {{ section.settings.logo_text | default: shop.name }}
     {%- endif -%}
   </a>
-  <nav class="mb-nav" style="display:flex;align-items:center;gap:30px;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;">
+  <nav class="mb-nav" style="display:flex;align-items:center;gap:30px;font-family:'Space Mono',monospace;font-size:14.5px;letter-spacing:.16em;text-transform:uppercase;">
     {%- for link in section.settings.menu.links -%}
       <a href="{{ link.url }}" style="color:{{ section.settings.text_color }};">{{ link.title }}</a>
     {%- endfor -%}
@@ -16,7 +16,7 @@
     {%- endif -%}
     <a href="{{ routes.cart_url }}" aria-label="Cart" style="position:relative;display:flex;align-items:center;color:{{ section.settings.text_color }};">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{ section.settings.text_color }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>
-      <span style="position:absolute;top:-7px;right:-9px;background:{{ section.settings.accent }};color:#3F3F3D;font-size:10px;font-weight:700;min-width:17px;height:17px;border-radius:999px;display:flex;align-items:center;justify-content:center;padding:0 4px;">{{ cart.item_count }}</span>
+      <span style="position:absolute;top:-7px;right:-9px;background:{{ section.settings.accent }};color:#3F3F3D;font-size:11px;font-weight:700;min-width:17px;height:17px;border-radius:999px;display:flex;align-items:center;justify-content:center;padding:0 4px;">{{ cart.item_count }}</span>
     </a>
   </nav>
 </header>
@@ -24,7 +24,7 @@
 <style>
   @media screen and (max-width: 749px) {
     #shopify-section-{{ section.id }} .mb-header { padding: 16px 20px !important; }
-    #shopify-section-{{ section.id }} .mb-nav { gap: 16px !important; font-size: 11px !important; width: 100%; justify-content: flex-start; flex-wrap: wrap; }
+    #shopify-section-{{ section.id }} .mb-nav { gap: 16px !important; font-size: 12px !important; width: 100%; justify-content: flex-start; flex-wrap: wrap; }
   }
 </style>
 
