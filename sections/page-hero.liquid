@@ -15,7 +15,7 @@
   {%- endif -%}
 
   {%- if section.settings.layout == 'hero' -%}
-    <div class="mb-pagehero mb-pagehero--hero" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;">
+    <div class="mb-pagehero mb-pagehero--hero" style="position:relative;z-index:1;max-width:{{ section.settings.content_width }}px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
       <div class="mb-pagehero__text">
         {%- if section.settings.eyebrow != blank -%}<p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#5B4373;margin:0 0 16px;">{{ section.settings.eyebrow }}</p>{%- endif -%}
         <h1 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:clamp(46px,6vw,92px);line-height:.95;letter-spacing:-.01em;margin:0 0 22px;">{{ heading_html }}</h1>
@@ -97,6 +97,7 @@
     { "type": "range", "id": "padding_bottom", "min": 40, "max": 120, "step": 4, "unit": "px", "label": "Padding bottom", "default": 88 },
     { "type": "checkbox", "id": "show_flowers_br", "label": "Show flower cluster (bottom right)", "default": true },
     { "type": "header", "content": "Homepage-style layout" },
+    { "type": "range", "id": "content_width", "min": 820, "max": 1180, "step": 20, "unit": "px", "label": "Content width (lower = title & photo closer)", "default": 960 },
     { "type": "image_picker", "id": "image", "label": "Circle photo (right)" },
     { "type": "range", "id": "image_size", "min": 260, "max": 620, "step": 4, "unit": "px", "label": "Circle size (max)", "default": 460 },
     { "type": "text", "id": "button_1_text", "label": "Button 1 text", "info": "Leave blank to hide." },
