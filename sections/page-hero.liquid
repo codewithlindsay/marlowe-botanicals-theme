@@ -1,8 +1,17 @@
 {%- comment -%} Marlowe — page hero (rich text banner, shared by About / Contact) {%- endcomment -%}
-<section data-section="page-hero" style="background:{{ section.settings.bg }};padding:{{ section.settings.padding_top }}px 44px {{ section.settings.padding_bottom }}px;position:relative;">
+{%- capture petals -%}<g fill="#FFFFFF"><circle cx="20" cy="12" r="6.6"></circle><circle cx="28" cy="20" r="6.6"></circle><circle cx="20" cy="28" r="6.6"></circle><circle cx="12" cy="20" r="6.6"></circle></g><circle cx="20" cy="20" r="4.2" fill="#A9CC7B"></circle>{%- endcapture -%}
+<section data-section="page-hero" style="background:{{ section.settings.bg }};padding:{{ section.settings.padding_top }}px 44px {{ section.settings.padding_bottom }}px;position:relative;overflow:hidden;">
   <div style="position:absolute;top:26px;left:36px;pointer-events:none;">
-    <svg width="52" height="52" viewBox="0 0 40 40" style="display:block;"><g fill="#FFFFFF"><circle cx="20" cy="12" r="6.6"></circle><circle cx="28" cy="20" r="6.6"></circle><circle cx="20" cy="28" r="6.6"></circle><circle cx="12" cy="20" r="6.6"></circle></g><circle cx="20" cy="20" r="4.2" fill="#A9CC7B"></circle></svg>
+    <svg width="54" height="54" viewBox="0 0 40 40" style="display:block;">{{ petals }}</svg>
+    <svg width="34" height="34" viewBox="0 0 40 40" style="display:block;margin:-6px 0 0 42px;">{{ petals }}</svg>
   </div>
+  {%- if section.settings.show_flowers_br -%}
+  <div style="position:absolute;bottom:24px;right:40px;width:120px;height:104px;pointer-events:none;">
+    <svg width="50" height="50" viewBox="0 0 40 40" style="position:absolute;right:0;bottom:0;">{{ petals }}</svg>
+    <svg width="32" height="32" viewBox="0 0 40 40" style="position:absolute;right:52px;bottom:16px;">{{ petals }}</svg>
+    <svg width="38" height="38" viewBox="0 0 40 40" style="position:absolute;right:24px;bottom:54px;">{{ petals }}</svg>
+  </div>
+  {%- endif -%}
   <div style="max-width:820px;margin:0 auto;text-align:center;">
     {%- if section.settings.eyebrow != blank -%}<p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#5B4373;margin:0 0 16px;">{{ section.settings.eyebrow }}</p>{%- endif -%}
     <h1 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:clamp(44px,7vw,80px);line-height:.98;margin:0 0 22px;">{{ section.settings.heading }}{%- if section.settings.heading_italic != blank -%}{% if section.settings.italic_on_new_line %}<br>{% else %} {% endif %}<span style="font-style:italic;">{{ section.settings.heading_italic }}</span>{%- endif -%}</h1>
@@ -40,6 +49,7 @@
     { "type": "color", "id": "bg", "label": "Background", "default": "#E8D8F8" },
     { "type": "range", "id": "padding_top", "min": 40, "max": 120, "step": 4, "unit": "px", "label": "Padding top", "default": 76 },
     { "type": "range", "id": "padding_bottom", "min": 40, "max": 120, "step": 4, "unit": "px", "label": "Padding bottom", "default": 88 },
+    { "type": "checkbox", "id": "show_flowers_br", "label": "Show flower cluster (bottom right)", "default": true },
     { "type": "header", "content": "Floating photo tile (bottom right)" },
     { "type": "image_picker", "id": "tile_image", "label": "Tile image", "info": "Optional. Only shows when an image is set." },
     { "type": "range", "id": "tile_size", "min": 90, "max": 260, "step": 2, "unit": "px", "label": "Tile width", "default": 150 },
