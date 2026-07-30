@@ -1,18 +1,80 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "breadcrumb": { "type": "breadcrumb", "settings": {} },
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "bg": "#e8d8f8"
+      }
+    },
     "product-info": {
       "type": "product-info",
       "blocks": {
-        "a1": { "type": "accordion", "settings": { "heading": "Description", "use_product_description": true, "content": "<p>Distilled from organically grown Lavandula angustifolia. Floral, herbaceous, and calming — ideal for winding down before sleep.</p>" } },
-        "a2": { "type": "accordion", "settings": { "heading": "How to use", "content": "<p>Add 4–6 drops to a diffuser, or dilute with a carrier oil for a pulse-point roll-on. Never apply undiluted to skin.</p>" } },
-        "a3": { "type": "accordion", "settings": { "heading": "Ingredients", "content": "<p>100% Lavandula angustifolia (lavender) essential oil. Nothing else.</p>" } },
-        "a4": { "type": "accordion", "settings": { "heading": "Shipping & returns", "content": "<p>Free shipping over $50. Ships in 1–2 business days. Unopened bottles returnable within 30 days.</p>" } }
+        "a1": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Description",
+            "content": "<p>Distilled from organically grown Lavandula angustifolia. Floral, herbaceous, and calming — ideal for winding down before sleep.</p>",
+            "use_product_description": true
+          }
+        },
+        "a2": {
+          "type": "accordion",
+          "settings": {
+            "heading": "How to use",
+            "content": "<p>Add 4–6 drops to a diffuser, or dilute with a carrier oil for a pulse-point roll-on. Never apply undiluted to skin.</p>",
+            "use_product_description": false
+          }
+        },
+        "a3": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Ingredients",
+            "content": "<p>100% Lavandula angustifolia (lavender) essential oil. Nothing else.</p>",
+            "use_product_description": false
+          }
+        },
+        "a4": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Shipping & returns",
+            "content": "<p>Free shipping over $50. Ships in 1–2 business days. Unopened bottles returnable within 30 days.</p>",
+            "use_product_description": false
+          }
+        }
       },
-      "block_order": ["a1", "a2", "a3", "a4"],
-      "settings": {}
+      "block_order": [
+        "a1",
+        "a2",
+        "a3",
+        "a4"
+      ],
+      "settings": {
+        "eyebrow": "Bestseller · Aromatherapy",
+        "review_count": "128 reviews",
+        "bg": "#e8d8f8"
+      }
     },
-    "related-products": { "type": "related-products", "settings": {} }
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Pairs well with",
+        "collection": "oils",
+        "bg": "#e4efd1"
+      }
+    }
   },
-  "order": ["breadcrumb", "product-info", "related-products"]
+  "order": [
+    "breadcrumb",
+    "product-info",
+    "related-products"
+  ]
 }
