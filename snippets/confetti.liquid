@@ -31,7 +31,7 @@
           try { flowerShape = window.confetti.shapeFromPath({ path: FLOWER_PATH }); } catch (e) { flowerShape = false; }
         }
       }
-      var o = { colors: FLOWER_COLORS, scalar: 1.5, flat: true };
+      var o = { colors: FLOWER_COLORS, scalar: 1.5 };
       if (flowerShape) o.shapes = [flowerShape];
       return o;
     }
@@ -46,9 +46,9 @@
           if (Date.now() < end) requestAnimationFrame(frame);
         })();
       } else if (name === 'pop') {
-        fire(Object.assign({ particleCount: 40, spread: 80, startVelocity: 28, origin: { y: 0.5 }, gravity: 0.8, ticks: 220 }, f));
+        fire(Object.assign({ particleCount: 40, spread: 80, startVelocity: 26, origin: { y: 0.5 }, gravity: 0.55, ticks: 320 }, f));
       } else {
-        fire(Object.assign({ particleCount: 110, spread: 110, startVelocity: 36, origin: { y: 0.5 }, gravity: 0.75, ticks: 260 }, f));
+        fire(Object.assign({ particleCount: 110, spread: 110, startVelocity: 32, origin: { y: 0.5 }, gravity: 0.5, ticks: 360 }, f));
       }
     }
 
