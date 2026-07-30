@@ -8,12 +8,23 @@
     <h1 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:clamp(44px,7vw,80px);line-height:.98;margin:0 0 22px;">{{ section.settings.heading }}{%- if section.settings.heading_italic != blank -%}{% if section.settings.italic_on_new_line %}<br>{% else %} {% endif %}<span style="font-style:italic;">{{ section.settings.heading_italic }}</span>{%- endif -%}</h1>
     {%- if section.settings.body != blank -%}<p style="color:#5B4373;font-size:14px;line-height:1.8;margin:0 auto;max-width:520px;">{{ section.settings.body }}</p>{%- endif -%}
   </div>
+  {%- if section.settings.tile_image != blank -%}
+    <div class="mb-pagehero__tile" style="position:absolute;right:44px;bottom:-28px;width:{{ section.settings.tile_size }}px;aspect-ratio:96/112;border-radius:20px;transform:rotate(-6deg);overflow:hidden;background:#5B4373;z-index:2;">
+      <img src="{{ section.settings.tile_image | image_url: width: 500 }}" alt="{{ section.settings.tile_image.alt | escape }}" loading="lazy" width="{{ section.settings.tile_image.width }}" height="{{ section.settings.tile_image.height }}" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+  {%- endif -%}
 </section>
 {%- if section.settings.show_wave -%}
 <div style="background:{{ section.settings.bg }};line-height:0;">
   <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:52px;"><path fill="{{ section.settings.wave_color }}" d="M0,60 L0,30 Q60,0 120,30 T240,30 T360,30 T480,30 T600,30 T720,30 T840,30 T960,30 T1080,30 T1200,30 T1320,30 T1440,30 L1440,60 Z"></path></svg>
 </div>
 {%- endif -%}
+
+<style>
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .mb-pagehero__tile { right: 20px !important; bottom: -18px !important; width: 96px !important; }
+  }
+</style>
 
 {% schema %}
 {
@@ -29,6 +40,9 @@
     { "type": "color", "id": "bg", "label": "Background", "default": "#E8D8F8" },
     { "type": "range", "id": "padding_top", "min": 40, "max": 120, "step": 4, "unit": "px", "label": "Padding top", "default": 76 },
     { "type": "range", "id": "padding_bottom", "min": 40, "max": 120, "step": 4, "unit": "px", "label": "Padding bottom", "default": 88 },
+    { "type": "header", "content": "Floating photo tile (bottom right)" },
+    { "type": "image_picker", "id": "tile_image", "label": "Tile image", "info": "Optional. Only shows when an image is set." },
+    { "type": "range", "id": "tile_size", "min": 90, "max": 260, "step": 2, "unit": "px", "label": "Tile width", "default": 150 },
     { "type": "header", "content": "Bottom wave" },
     { "type": "checkbox", "id": "show_wave", "label": "Show bottom wave", "default": true },
     { "type": "color", "id": "wave_color", "label": "Wave color (next section bg)", "default": "#FDF3EA" }
