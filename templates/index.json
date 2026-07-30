@@ -149,6 +149,7 @@
         "intro": "Aromatherapy isn't about fixing yourself — it's about making space to rest. Here's what that looks like in practice:",
         "button_text": "Learn more",
         "button_link": "",
+        "bullet_color": "#4E8309",
         "bg": "#fdf3ea"
       }
     },
