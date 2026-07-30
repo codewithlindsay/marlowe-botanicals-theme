@@ -1,7 +1,14 @@
 {%- comment -%} Marlowe — main product (gallery, variant pills, qty, add to cart, accordions) {%- endcomment -%}
 {%- assign current = product.selected_or_first_available_variant -%}
-<section data-section="product-info" style="background:{{ section.settings.bg }};padding:40px 44px 80px;">
-  <div class="mb-pdp__wrap" style="max-width:1180px;margin:0 auto;background:#FFFFFF;border-radius:30px;padding:clamp(28px,4vw,56px);">
+{%- capture petals -%}<g fill="#FFFFFF"><circle cx="20" cy="12" r="6.6"></circle><circle cx="28" cy="20" r="6.6"></circle><circle cx="20" cy="28" r="6.6"></circle><circle cx="12" cy="20" r="6.6"></circle></g><circle cx="20" cy="20" r="4.2" fill="#A9CC7B"></circle>{%- endcapture -%}
+<section data-section="product-info" style="background:{{ section.settings.bg }};padding:40px 44px 80px;position:relative;overflow:hidden;">
+  {%- if section.settings.show_flowers -%}
+  <div style="position:absolute;top:20px;left:36px;pointer-events:none;z-index:0;">
+    <svg width="54" height="54" viewBox="0 0 40 40" style="display:block;">{{ petals }}</svg>
+    <svg width="34" height="34" viewBox="0 0 40 40" style="display:block;margin:-6px 0 0 42px;">{{ petals }}</svg>
+  </div>
+  {%- endif -%}
+  <div class="mb-pdp__wrap" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;background:#FFFFFF;border-radius:30px;padding:clamp(28px,4vw,56px);">
   <div class="mb-pdp" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
   <div class="mb-pdp__media" style="position:sticky;top:24px;">
     <div style="border-radius:24px;overflow:hidden;aspect-ratio:1;background:#E8D8F8;display:flex;align-items:center;justify-content:center;background-image:repeating-linear-gradient(45deg,rgba(91,67,115,.07) 0 16px,transparent 16px 32px);">
@@ -82,6 +89,11 @@
   </div>
   </div>
 </section>
+{%- if section.settings.show_wave -%}
+<div style="background:{{ section.settings.bg }};line-height:0;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:52px;"><path fill="{{ section.settings.wave_color }}" d="M0,60 L0,30 Q60,0 120,30 T240,30 T360,30 T480,30 T600,30 T720,30 T840,30 T960,30 T1080,30 T1200,30 T1320,30 T1440,30 L1440,60 Z"></path></svg>
+</div>
+{%- endif -%}
 
 <style>
   #shopify-section-{{ section.id }} .mb-size { border: 2px solid #D8C4F0; background: #FFFFFF; color: #5B4373; }
@@ -151,7 +163,11 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow (defaults to product type)", "default": "Bestseller · Aromatherapy" },
     { "type": "text", "id": "review_count", "label": "Review count text", "default": "128 reviews" },
-    { "type": "color", "id": "bg", "label": "Background", "default": "#E8D8F8" }
+    { "type": "color", "id": "bg", "label": "Background", "default": "#E8D8F8" },
+    { "type": "checkbox", "id": "show_flowers", "label": "Show flowers (top left)", "default": true },
+    { "type": "header", "content": "Bottom wave" },
+    { "type": "checkbox", "id": "show_wave", "label": "Show scalloped divider", "default": true },
+    { "type": "color", "id": "wave_color", "label": "Wave color (next section bg)", "default": "#E4EFD1" }
   ],
   "blocks": [
     {
