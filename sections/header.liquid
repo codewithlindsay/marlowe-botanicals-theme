@@ -12,7 +12,7 @@
       <a href="{{ link.url }}" style="color:{{ section.settings.text_color }};">{{ link.title }}</a>
     {%- endfor -%}
     {%- if section.settings.cta_text != blank -%}
-      <a href="{{ section.settings.cta_link | default: '#' }}" style="color:{{ section.settings.text_color }};border:2px solid {{ section.settings.text_color }};border-radius:999px;padding:11px 22px;">{{ section.settings.cta_text }}</a>
+      <a href="{{ section.settings.cta_link | default: '#' }}" style="color:{{ section.settings.text_color }};background:{{ section.settings.cta_bg }};border:2px solid {{ section.settings.text_color }};border-radius:999px;padding:11px 22px;">{{ section.settings.cta_text }}</a>
     {%- endif -%}
     <a href="{{ routes.cart_url }}" aria-label="Cart" style="position:relative;display:flex;align-items:center;color:{{ section.settings.text_color }};">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{ section.settings.text_color }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>
@@ -39,6 +39,7 @@
     { "type": "link_list", "id": "menu", "label": "Navigation menu", "default": "main-menu" },
     { "type": "text", "id": "cta_text", "label": "CTA button text", "default": "Book a session" },
     { "type": "url", "id": "cta_link", "label": "CTA button link" },
+    { "type": "color", "id": "cta_bg", "label": "CTA button background", "default": "#FDF3EA" },
     { "type": "color", "id": "bg", "label": "Background", "default": "#E8D8F8" },
     { "type": "color", "id": "text_color", "label": "Text / links", "default": "#5B4373" },
     { "type": "color", "id": "accent", "label": "Cart badge", "default": "#A9CC7B" }
