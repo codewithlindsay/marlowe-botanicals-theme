@@ -14,9 +14,9 @@
     {%- if section.settings.cta_text != blank -%}
       <a href="{{ section.settings.cta_link | default: '#' }}" style="color:{{ section.settings.text_color }};background:{{ section.settings.cta_bg }};border:2px solid {{ section.settings.text_color }};border-radius:999px;padding:11px 22px;">{{ section.settings.cta_text }}</a>
     {%- endif -%}
-    <a href="{{ routes.cart_url }}" aria-label="Cart" style="position:relative;display:flex;align-items:center;color:{{ section.settings.text_color }};">
+    <a href="{{ routes.cart_url }}" data-mb-cart-open aria-label="Cart" style="position:relative;display:flex;align-items:center;color:{{ section.settings.text_color }};">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{ section.settings.text_color }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>
-      <span style="position:absolute;top:-7px;right:-9px;background:{{ section.settings.accent }};color:#3F3F3D;font-size:12px;font-weight:700;min-width:17px;height:17px;border-radius:999px;display:flex;align-items:center;justify-content:center;padding:0 4px;">{{ cart.item_count }}</span>
+      <span class="mb-cart-count" style="position:absolute;top:-7px;right:-9px;background:{{ section.settings.accent }};color:#3F3F3D;font-size:12px;font-weight:700;min-width:17px;height:17px;border-radius:999px;display:flex;align-items:center;justify-content:center;padding:0 4px;">{{ cart.item_count }}</span>
     </a>
   </nav>
 </header>
