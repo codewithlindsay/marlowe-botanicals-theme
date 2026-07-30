@@ -1,6 +1,8 @@
 {%- comment -%} Marlowe — main product (gallery, variant pills, qty, add to cart, accordions) {%- endcomment -%}
 {%- assign current = product.selected_or_first_available_variant -%}
-<section data-section="product-info" class="mb-pdp" style="max-width:1180px;margin:0 auto;padding:32px 44px 80px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
+<section data-section="product-info" style="background:{{ section.settings.bg }};padding:40px 44px 80px;">
+  <div class="mb-pdp__wrap" style="max-width:1180px;margin:0 auto;background:#FFFFFF;border-radius:30px;padding:clamp(28px,4vw,56px);">
+  <div class="mb-pdp" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
   <div class="mb-pdp__media" style="position:sticky;top:24px;">
     <div style="border-radius:24px;overflow:hidden;aspect-ratio:1;background:#E8D8F8;display:flex;align-items:center;justify-content:center;background-image:repeating-linear-gradient(45deg,rgba(91,67,115,.07) 0 16px,transparent 16px 32px);">
       {%- if product.featured_media -%}
@@ -26,7 +28,7 @@
     {%- endif -%}
   </div>
 
-  <div class="mb-pdp__card" style="background:#FFFFFF;border-radius:24px;padding:clamp(28px,3.2vw,44px);">
+  <div class="mb-pdp__info">
     {%- if section.settings.eyebrow != blank or product.type != blank -%}
       <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#5B4373;margin:0 0 12px;">{{ section.settings.eyebrow | default: product.type }}</p>
     {%- endif -%}
@@ -82,6 +84,8 @@
         </details>
       {%- endfor -%}
     </div>
+  </div>
+  </div>
   </div>
 </section>
 
@@ -152,7 +156,8 @@
   "class": "section",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow (defaults to product type)", "default": "Bestseller · Aromatherapy" },
-    { "type": "text", "id": "review_count", "label": "Review count text", "default": "128 reviews" }
+    { "type": "text", "id": "review_count", "label": "Review count text", "default": "128 reviews" },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#E8D8F8" }
   ],
   "blocks": [
     {
