@@ -367,11 +367,14 @@
       .collection .card__heading a { color: #5B4373 !important; font-size: 21px !important; line-height: 1.2; }
       .collection .card-information .price,
       .collection .card-information .price * { color: #5B4373 !important; font-size: 15px !important; }
-      /* Polaroid-style product cards: round the photo inside the white card */
-      .collection .card--card .card__inner { border-radius: 12px !important; overflow: hidden; }
-      .collection .card--card .card__media,
-      .collection .card--card .card__media > .media { border-radius: 12px !important; }
-      .collection .card--card .card__content { padding-top: 14px; }
+      /* Polaroid-style product cards: white box, rounded photo, title/price inside */
+      .collection .card-wrapper { background: #FFFFFF; border-radius: 20px; padding: 12px; box-shadow: 0 6px 22px rgba(63,63,61,.07); }
+      .collection .card-wrapper .card,
+      .collection .card-wrapper .card__inner,
+      .collection .card-wrapper .card__media,
+      .collection .card-wrapper .card__media > .media,
+      .collection .card-wrapper .card__media img { border-radius: 12px !important; }
+      .collection .card-wrapper .card__content { padding: 14px 8px 2px !important; }
     </style>
     {%- comment %} ===== END MARLOWE OVERRIDES ===== {% endcomment -%}
   </head>
