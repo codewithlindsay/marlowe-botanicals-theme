@@ -2,8 +2,22 @@
   "name": "Header",
   "type": "header",
   "sections": {
-    "announcement-bar": { "type": "announcement-bar", "settings": {} },
-    "header": { "type": "header", "settings": {} }
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {}
+    },
+    "header": {
+      "type": "header",
+      "settings": {}
+    },
+    "free-shipping-bar": {
+      "type": "free-shipping-bar",
+      "settings": {}
+    }
   },
-  "order": ["announcement-bar", "header"]
+  "order": [
+    "announcement-bar",
+    "free-shipping-bar",
+    "header"
+  ]
 }

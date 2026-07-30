@@ -1451,5 +1451,141 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Free shipping bar",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Messages (shared between header & drawer)"
+      },
+      {
+        "type": "text",
+        "id": "fsb_progress_message",
+        "label": "Progress message",
+        "default": "Spend [amount] to unlock free shipping",
+        "info": "Use [amount] where the remaining amount should appear."
+      },
+      {
+        "type": "text",
+        "id": "fsb_success_message",
+        "label": "Success message",
+        "default": "You unlocked FREE shipping!"
+      },
+      {
+        "type": "number",
+        "id": "fsb_drawer_threshold",
+        "label": "Cart drawer threshold",
+        "default": 50,
+        "info": "Whole units (50 = $50). Match your header bar's threshold."
+      },
+      {
+        "type": "range",
+        "id": "fsb_switch_percent",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Fill turns 'close' color past",
+        "default": 50
+      },
+      {
+        "type": "header",
+        "content": "Cart drawer appearance"
+      },
+      {
+        "type": "color",
+        "id": "fsb_drawer_bg_color",
+        "label": "Background",
+        "default": "#5B4373"
+      },
+      {
+        "type": "color",
+        "id": "fsb_drawer_text_color",
+        "label": "Text",
+        "default": "#FDF3EA"
+      },
+      {
+        "type": "color",
+        "id": "fsb_drawer_fill_color",
+        "label": "Progress fill (starting)",
+        "default": "#E8D8F8"
+      },
+      {
+        "type": "color",
+        "id": "fsb_drawer_fill_near",
+        "label": "Progress fill (getting close)",
+        "default": "#A9CC7B"
+      },
+      {
+        "type": "range",
+        "id": "fsb_drawer_font_size",
+        "label": "Font size",
+        "min": 10,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "default": 15
+      },
+      {
+        "type": "range",
+        "id": "fsb_drawer_bar_height",
+        "label": "Progress bar height",
+        "min": 2,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "default": 8
+      },
+      {
+        "type": "range",
+        "id": "fsb_drawer_bar_max_width",
+        "label": "Progress bar max width",
+        "min": 100,
+        "max": 600,
+        "step": 10,
+        "unit": "px",
+        "default": 420
+      }
+    ]
+  },
+  {
+    "name": "Confetti celebration",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Confetti when free shipping is unlocked"
+      },
+      {
+        "type": "paragraph",
+        "content": "Fires flower confetti in the cart drawer the moment the cart crosses the free shipping threshold."
+      },
+      {
+        "type": "checkbox",
+        "id": "confetti_enabled",
+        "label": "Enable confetti",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "confetti_style",
+        "label": "Celebration style",
+        "options": [
+          {
+            "value": "pop",
+            "label": "Subtle pop"
+          },
+          {
+            "value": "unlock",
+            "label": "Standard burst"
+          },
+          {
+            "value": "celebrate",
+            "label": "Party mode"
+          }
+        ],
+        "default": "unlock"
+      }
+    ]
   }
 ]

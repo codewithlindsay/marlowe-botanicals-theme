@@ -6,6 +6,19 @@
       <span class="mb-cart__title">Your cart</span>
       <button type="button" class="mb-cart__x" data-mb-cart-close aria-label="Close cart">&times;</button>
     </div>
+    {% render 'free-shipping-bar',
+      threshold: settings.fsb_drawer_threshold,
+      progress_message: settings.fsb_progress_message,
+      success_message: settings.fsb_success_message,
+      bg_color: settings.fsb_drawer_bg_color,
+      text_color: settings.fsb_drawer_text_color,
+      fill_color: settings.fsb_drawer_fill_color,
+      fill_color_near: settings.fsb_drawer_fill_near,
+      switch_percent: settings.fsb_switch_percent,
+      font_size: settings.fsb_drawer_font_size,
+      bar_height: settings.fsb_drawer_bar_height,
+      bar_max_width: settings.fsb_drawer_bar_max_width
+    %}
     <div id="mb-cart-items" class="mb-cart__items"></div>
     <p id="mb-cart-empty" class="mb-cart__empty" hidden>Your cart is empty.</p>
     <div id="mb-cart-foot" class="mb-cart__foot" hidden>

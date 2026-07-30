@@ -1,0 +1,118 @@
+{%- comment -%}
+  Confetti Celebration — Marlowe
+  Fires flower-shaped confetti (site palette) inside the custom cart drawer (#mb-cart)
+  when the cart crosses the free-shipping threshold (listens for cart:threshold-reached).
+  Flowers match the site motif; petals use lavender/plum/lime so they show on the cream drawer.
+  Requires assets/canvas-confetti.min.js. Render once before </body> in theme.liquid.
+{%- endcomment -%}
+{%- liquid
+  assign test = test | default: false
+-%}
+
+<script src="{{ 'canvas-confetti.min.js' | asset_url }}" defer></script>
+
+<script>
+  (function () {
+    if (window.__confettiScriptLoaded) return;
+    window.__confettiScriptLoaded = true;
+
+    var ENABLED = {{ settings.confetti_enabled | default: true | json }};
+    var STYLE = {{ settings.confetti_style | default: 'unlock' | json }};
+    var REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Site flower motif (quatrefoil, 4 petals) as a confetti shape, tinted with the palette.
+    var FLOWER_PATH = 'M13.4,12 a6.6,6.6 0 1,0 13.2,0 a6.6,6.6 0 1,0 -13.2,0 Z M21.4,20 a6.6,6.6 0 1,0 13.2,0 a6.6,6.6 0 1,0 -13.2,0 Z M13.4,28 a6.6,6.6 0 1,0 13.2,0 a6.6,6.6 0 1,0 -13.2,0 Z M5.4,20 a6.6,6.6 0 1,0 13.2,0 a6.6,6.6 0 1,0 -13.2,0 Z';
+    var FLOWER_COLORS = ['#5B4373', '#A9CC7B', '#C9B3E8', '#E8D8F8']; // plum, lime, lavender, light lavender
+    var flowerShape;
+    function flowerOpts() {
+      if (flowerShape === undefined) {
+        flowerShape = false;
+        if (window.confetti && typeof window.confetti.shapeFromPath === 'function') {
+          try { flowerShape = window.confetti.shapeFromPath({ path: FLOWER_PATH }); } catch (e) { flowerShape = false; }
+        }
+      }
+      var o = { colors: FLOWER_COLORS, scalar: 1.5, flat: true };
+      if (flowerShape) o.shapes = [flowerShape];
+      return o;
+    }
+
+    function firePreset(name, fire) {
+      var f = flowerOpts();
+      if (name === 'celebrate') {
+        var end = Date.now() + 2500;
+        (function frame() {
+          fire(Object.assign({ particleCount: 5, angle: 60, spread: 70, origin: { x: 0, y: 0.5 }, startVelocity: 40 }, f));
+          fire(Object.assign({ particleCount: 5, angle: 120, spread: 70, origin: { x: 1, y: 0.5 }, startVelocity: 40 }, f));
+          if (Date.now() < end) requestAnimationFrame(frame);
+        })();
+      } else if (name === 'pop') {
+        fire(Object.assign({ particleCount: 40, spread: 80, startVelocity: 28, origin: { y: 0.5 }, gravity: 0.8, ticks: 220 }, f));
+      } else {
+        fire(Object.assign({ particleCount: 110, spread: 110, startVelocity: 36, origin: { y: 0.5 }, gravity: 0.75, ticks: 260 }, f));
+      }
+    }
+
+    function waitForConfettiThen(fn) {
+      if (typeof window.confetti === 'function') return fn();
+      var tries = 0;
+      var iv = setInterval(function () {
+        if (typeof window.confetti === 'function') { clearInterval(iv); fn(); }
+        else if (++tries > 50) { clearInterval(iv); }
+      }, 60);
+    }
+
+    window.fireConfetti = function (presetOrOpts) {
+      if (REDUCED_MOTION) return;
+      waitForConfettiThen(function () {
+        if (typeof presetOrOpts === 'string') firePreset(presetOrOpts, window.confetti);
+        else if (presetOrOpts && typeof presetOrOpts === 'object') window.confetti(presetOrOpts);
+        else firePreset('celebrate', window.confetti);
+      });
+    };
+
+    // -- Custom drawer (#mb-cart) --------------------------------------------
+    function drawerEl() { return document.getElementById('mb-cart'); }
+    function isDrawerOpen() { var d = drawerEl(); return d ? d.classList.contains('is-open') : true; }
+    function drawerPanel() { return document.querySelector('#mb-cart .mb-cart__panel') || drawerEl(); }
+
+    function getCanvas() {
+      var panel = drawerPanel();
+      if (!panel) return null;
+      if (getComputedStyle(panel).position === 'static') panel.style.position = 'relative';
+      var c = panel.querySelector('[data-confetti-canvas]');
+      if (c) return c;
+      c = document.createElement('canvas');
+      c.setAttribute('data-confetti-canvas', '');
+      c.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:10;';
+      panel.appendChild(c);
+      return c;
+    }
+
+    function fireInDrawer(preset) {
+      waitForConfettiThen(function () {
+        var canvas = getCanvas();
+        if (!canvas) { firePreset(preset, window.confetti); return; }
+        var scoped = window.confetti.create(canvas, { resize: true, useWorker: false });
+        firePreset(preset, scoped);
+      });
+    }
+
+    document.addEventListener('cart:threshold-reached', function () {
+      if (!ENABLED || REDUCED_MOTION) return;
+      var attempts = 0;
+      var iv = setInterval(function () {
+        if (isDrawerOpen()) { clearInterval(iv); fireInDrawer(STYLE); }
+        else if (++attempts > 25) { clearInterval(iv); }
+      }, 100);
+    });
+  })();
+</script>
+
+{%- if test -%}
+  <div style="margin:30px auto;max-width:480px;padding:20px;border:2px dashed #5B4373;border-radius:12px;background:#FDF3EA;text-align:center;font-family:'Space Mono',monospace;">
+    <p style="margin:0 0 12px;font-size:13px;color:#5B4373;"><strong>Confetti test</strong> — fires fullscreen. Remove <code>test: true</code> to hide.</p>
+    <button type="button" onclick="window.fireConfetti('celebrate')" style="margin:4px;padding:10px 16px;border:none;border-radius:999px;background:#5B4373;color:#FDF3EA;cursor:pointer;">Party</button>
+    <button type="button" onclick="window.fireConfetti('unlock')" style="margin:4px;padding:10px 16px;border:none;border-radius:999px;background:#A9CC7B;color:#3F3F3D;cursor:pointer;">Standard</button>
+    <button type="button" onclick="window.fireConfetti('pop')" style="margin:4px;padding:10px 16px;border:none;border-radius:999px;background:#C9B3E8;color:#3F3F3D;cursor:pointer;">Pop</button>
+  </div>
+{%- endif -%}

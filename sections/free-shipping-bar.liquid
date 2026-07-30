@@ -1,0 +1,31 @@
+{%- comment -%} Free shipping bar — header wrapper around snippets/free-shipping-bar.liquid {%- endcomment -%}
+{% render 'free-shipping-bar',
+  threshold: section.settings.threshold,
+  progress_message: settings.fsb_progress_message,
+  success_message: settings.fsb_success_message,
+  bg_color: section.settings.bg_color,
+  text_color: section.settings.text_color,
+  fill_color: section.settings.fill_color,
+  fill_color_near: section.settings.fill_color_near,
+  switch_percent: section.settings.switch_percent
+%}
+
+{% schema %}
+{
+  "name": "Free shipping bar",
+  "tag": "section",
+  "class": "section-free-shipping-bar",
+  "settings": [
+    { "type": "header", "content": "Threshold" },
+    { "type": "number", "id": "threshold", "label": "Free shipping threshold", "default": 50, "info": "Whole units of your store currency (50 = $50). Messages are set in Theme settings → Free shipping bar." },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "bg_color", "label": "Section background", "default": "#5B4373" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#FDF3EA" },
+    { "type": "color", "id": "fill_color", "label": "Progress fill (starting)", "default": "#E8D8F8" },
+    { "type": "color", "id": "fill_color_near", "label": "Progress fill (getting close)", "default": "#A9CC7B" },
+    { "type": "range", "id": "switch_percent", "min": 0, "max": 100, "step": 5, "unit": "%", "label": "Switch to 'close' color at", "default": 50 }
+  ],
+  "presets": [{ "name": "Free shipping bar" }],
+  "enabled_on": { "groups": ["header"] }
+}
+{% endschema %}
