@@ -9,15 +9,10 @@
     "header": {
       "type": "header",
       "settings": {}
-    },
-    "free-shipping-bar": {
-      "type": "free-shipping-bar",
-      "settings": {}
     }
   },
   "order": [
     "announcement-bar",
-    "free-shipping-bar",
     "header"
   ]
 }
