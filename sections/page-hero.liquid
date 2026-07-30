@@ -3,14 +3,14 @@
 {%- capture heading_html -%}{{ section.settings.heading }}{%- if section.settings.heading_italic != blank -%}{% if section.settings.italic_on_new_line %}<br>{% else %} {% endif %}<span style="font-style:italic;">{{ section.settings.heading_italic }}</span>{%- endif -%}{%- endcapture -%}
 <section data-section="page-hero" style="background:{{ section.settings.bg }};padding:{{ section.settings.padding_top }}px 44px {{ section.settings.padding_bottom }}px;position:relative;overflow:hidden;">
   <div style="position:absolute;top:26px;left:36px;pointer-events:none;z-index:0;">
-    <svg width="54" height="54" viewBox="0 0 40 40" style="display:block;">{{ petals }}</svg>
-    <svg width="34" height="34" viewBox="0 0 40 40" style="display:block;margin:-6px 0 0 42px;">{{ petals }}</svg>
+    <svg width="62" height="62" viewBox="0 0 40 40" style="display:block;">{{ petals }}</svg>
+    <svg width="39" height="39" viewBox="0 0 40 40" style="display:block;margin:-6px 0 0 42px;">{{ petals }}</svg>
   </div>
   {%- if section.settings.show_flowers_br -%}
   <div style="position:absolute;bottom:24px;right:40px;width:120px;height:104px;pointer-events:none;z-index:0;">
-    <svg width="50" height="50" viewBox="0 0 40 40" style="position:absolute;right:0;bottom:0;">{{ petals }}</svg>
-    <svg width="32" height="32" viewBox="0 0 40 40" style="position:absolute;right:52px;bottom:16px;">{{ petals }}</svg>
-    <svg width="38" height="38" viewBox="0 0 40 40" style="position:absolute;right:24px;bottom:54px;">{{ petals }}</svg>
+    <svg width="57" height="57" viewBox="0 0 40 40" style="position:absolute;right:0;bottom:0;">{{ petals }}</svg>
+    <svg width="37" height="37" viewBox="0 0 40 40" style="position:absolute;right:52px;bottom:16px;">{{ petals }}</svg>
+    <svg width="44" height="44" viewBox="0 0 40 40" style="position:absolute;right:24px;bottom:54px;">{{ petals }}</svg>
   </div>
   {%- endif -%}
 

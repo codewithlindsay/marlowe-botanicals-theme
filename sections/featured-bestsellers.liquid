@@ -4,7 +4,7 @@
     <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:32px;">
       <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:49px;line-height:1;margin:0;">{{ section.settings.heading }}</h2>
       <div style="display:flex;align-items:center;gap:0;">
-        <svg width="30" height="30" viewBox="0 0 40 40" style="display:block;margin:-6px 34px 0 0;"><g fill="#FFFFFF"><circle cx="20" cy="12" r="6.6"></circle><circle cx="28" cy="20" r="6.6"></circle><circle cx="20" cy="28" r="6.6"></circle><circle cx="12" cy="20" r="6.6"></circle></g><circle cx="20" cy="20" r="4.2" fill="#A9CC7B"></circle></svg>
+        <svg width="34" height="34" viewBox="0 0 40 40" style="display:block;margin:-6px 34px 0 0;"><g fill="#FFFFFF"><circle cx="20" cy="12" r="6.6"></circle><circle cx="28" cy="20" r="6.6"></circle><circle cx="20" cy="28" r="6.6"></circle><circle cx="12" cy="20" r="6.6"></circle></g><circle cx="20" cy="20" r="4.2" fill="#A9CC7B"></circle></svg>
         {%- if section.settings.link_text != blank -%}<a href="{{ section.settings.link_url | default: section.settings.collection.url | default: routes.all_products_collection_url }}" style="color:#5B4373;font-size:15px;letter-spacing:.16em;text-transform:uppercase;border-bottom:2px solid #5B4373;padding-bottom:3px;">{{ section.settings.link_text }}</a>{%- endif -%}
       </div>
     </div>
