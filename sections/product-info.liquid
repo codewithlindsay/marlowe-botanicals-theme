@@ -93,6 +93,20 @@
   #shopify-section-{{ section.id }} details[open] > summary.mb-acc .mb-acc-chev { transform: rotate(180deg); }
   #shopify-section-{{ section.id }} #mb-qty::-webkit-outer-spin-button,
   #shopify-section-{{ section.id }} #mb-qty::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  /* Style the generic "Buy it now" dynamic-checkout button to match (branded wallets like Shop Pay can't be recolored) */
+  #shopify-section-{{ section.id }} .shopify-payment-button__button--unbranded {
+    background-color: #A9CC7B !important;
+    color: #3F3F3D !important;
+    border-radius: 999px !important;
+    font-family: 'Space Mono', monospace !important;
+    font-size: 13px !important;
+    letter-spacing: .16em !important;
+    text-transform: uppercase !important;
+    min-height: 54px !important;
+    box-shadow: none !important;
+  }
+  #shopify-section-{{ section.id }} .shopify-payment-button__button--unbranded:hover:not([disabled]) { background-color: #9bbf6b !important; }
+  #shopify-section-{{ section.id }} .shopify-payment-button__more-options { color: #5B4373 !important; }
   @media screen and (max-width: 749px) {
     #shopify-section-{{ section.id }} .mb-pdp { grid-template-columns: 1fr !important; gap: 32px !important; }
     #shopify-section-{{ section.id }} .mb-pdp__media { position: static !important; }
