@@ -26,7 +26,7 @@
       <p style="max-width:400px;color:#5B4373;font-size:17px;line-height:1.75;margin:36px 0 28px;">{{ section.settings.body }}</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;">
         {%- if section.settings.button_1_text != blank -%}<a href="{{ section.settings.button_1_link | default: '#' }}" style="display:inline-block;background:#5B4373;color:#FDF3EA;font-size:16px;letter-spacing:.16em;text-transform:uppercase;padding:16px 30px;border-radius:999px;">{{ section.settings.button_1_text }}</a>{%- endif -%}
-        {%- if section.settings.button_2_text != blank -%}<a href="{{ section.settings.button_2_link | default: '#' }}" style="display:inline-block;border:2px solid #5B4373;color:#5B4373;font-size:16px;letter-spacing:.16em;text-transform:uppercase;padding:15px 28px;border-radius:999px;">{{ section.settings.button_2_text }}</a>{%- endif -%}
+        {%- if section.settings.button_2_text != blank -%}<a href="{{ section.settings.button_2_link | default: '#' }}" style="display:inline-block;background:#FDF3EA;border:2px solid #5B4373;color:#5B4373;font-size:16px;letter-spacing:.16em;text-transform:uppercase;padding:15px 28px;border-radius:999px;">{{ section.settings.button_2_text }}</a>{%- endif -%}
       </div>
     </div>
   </div>
