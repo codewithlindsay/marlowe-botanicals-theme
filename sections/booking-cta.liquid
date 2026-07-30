@@ -1,0 +1,58 @@
+{%- comment -%} Marlowe — booking CTA band (plum, round photo, button) {%- endcomment -%}
+<section data-section="booking-cta" style="background:{{ section.settings.bg }};padding:76px 44px;">
+  <div class="mb-bookcta {% if section.settings.image_position == 'left' %}mb-bookcta--img-left{% endif %}" style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;">
+    <div class="mb-bookcta__text">
+      {%- if section.settings.eyebrow != blank -%}<p style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#A9CC7B;margin:0 0 14px;">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#FFFFFF;font-size:clamp(30px,3.6vw,44px);line-height:1.1;margin:0 0 18px;">{{ section.settings.heading }}</h2>
+      {%- if section.settings.body != blank -%}<p style="color:#E8D8F8;font-size:16px;line-height:1.8;margin:0 0 28px;max-width:440px;">{{ section.settings.body }}</p>{%- endif -%}
+      {%- if section.settings.button_text != blank -%}
+        <a href="{{ section.settings.button_link | default: '#' }}" style="display:inline-block;background:{{ section.settings.button_bg }};color:{{ section.settings.button_text_color }};font-size:14px;letter-spacing:.16em;text-transform:uppercase;padding:16px 32px;border-radius:999px;">{{ section.settings.button_text }}</a>
+      {%- endif -%}
+    </div>
+    <div class="mb-bookcta__media" style="width:100%;max-width:{{ section.settings.image_size }}px;justify-self:center;">
+      <div style="width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#E8D8F8;display:flex;align-items:center;justify-content:center;background-image:repeating-linear-gradient(45deg,rgba(91,67,115,.12) 0 16px,transparent 16px 32px);">
+        {%- if section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width: 700 }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" style="width:100%;height:100%;object-fit:cover;">
+        {%- else -%}
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#5B4373;text-align:center;">session<br>photo</span>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #shopify-section-{{ section.id }} .mb-bookcta--img-left .mb-bookcta__text { order: 2; }
+  #shopify-section-{{ section.id }} .mb-bookcta--img-left .mb-bookcta__media { order: 1; }
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .mb-bookcta { grid-template-columns: 1fr !important; gap: 32px !important; text-align: center; }
+    #shopify-section-{{ section.id }} .mb-bookcta__text p { margin-left: auto; margin-right: auto; }
+    #shopify-section-{{ section.id }} .mb-bookcta__media { order: -1 !important; max-width: 240px !important; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Booking CTA",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Bookings" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Ready to book your session?" },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "Come in for hands-on bodywork and a custom blend to take home. I'll confirm your appointment by email within one business day." },
+    { "type": "text", "id": "button_text", "label": "Button text", "default": "Book a session" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "color", "id": "button_bg", "label": "Button background", "default": "#FDF3EA" },
+    { "type": "color", "id": "button_text_color", "label": "Button text color", "default": "#5B4373" },
+    { "type": "header", "content": "Photo" },
+    { "type": "image_picker", "id": "image", "label": "Round photo" },
+    { "type": "range", "id": "image_size", "min": 180, "max": 420, "step": 10, "unit": "px", "label": "Photo size (max)", "default": 280 },
+    {
+      "type": "select", "id": "image_position", "label": "Photo position", "default": "right",
+      "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ]
+    },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#5B4373" }
+  ],
+  "presets": [{ "name": "Booking CTA" }]
+}
+{% endschema %}
