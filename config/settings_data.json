@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "current": "Dawn",
   "presets": {
@@ -67,6 +58,17 @@
             "secondary_button_label": "#E4EFD1",
             "shadow": "#3F3F3D"
           }
+        },
+        "scheme-6": {
+          "settings": {
+            "background": "#FFFFFF",
+            "background_gradient": "",
+            "text": "#5B4373",
+            "button": "#5B4373",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#5B4373",
+            "shadow": "#3F3F3D"
+          }
         }
       },
       "type_header_font": "dm_serif_display_n4",
@@ -100,17 +102,17 @@
       "inputs_shadow_horizontal_offset": 0,
       "inputs_shadow_vertical_offset": 4,
       "inputs_shadow_blur": 5,
-      "card_style": "standard",
-      "card_image_padding": 0,
+      "card_style": "card",
+      "card_image_padding": 12,
       "card_text_alignment": "center",
-      "card_color_scheme": "scheme-2",
+      "card_color_scheme": "scheme-6",
       "card_border_thickness": 0,
       "card_border_opacity": 10,
-      "card_corner_radius": 0,
-      "card_shadow_opacity": 0,
+      "card_corner_radius": 16,
+      "card_shadow_opacity": 7,
       "card_shadow_horizontal_offset": 0,
-      "card_shadow_vertical_offset": 4,
-      "card_shadow_blur": 5,
+      "card_shadow_vertical_offset": 6,
+      "card_shadow_blur": 16,
       "collection_card_style": "standard",
       "collection_card_image_padding": 0,
       "collection_card_text_alignment": "left",

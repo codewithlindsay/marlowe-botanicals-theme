@@ -367,6 +367,11 @@
       .collection .card__heading a { color: #5B4373 !important; font-size: 21px !important; line-height: 1.2; }
       .collection .card-information .price,
       .collection .card-information .price * { color: #5B4373 !important; font-size: 15px !important; }
+      /* Polaroid-style product cards: round the photo inside the white card */
+      .collection .card--card .card__inner { border-radius: 12px !important; overflow: hidden; }
+      .collection .card--card .card__media,
+      .collection .card--card .card__media > .media { border-radius: 12px !important; }
+      .collection .card--card .card__content { padding-top: 14px; }
     </style>
     {%- comment %} ===== END MARLOWE OVERRIDES ===== {% endcomment -%}
   </head>
