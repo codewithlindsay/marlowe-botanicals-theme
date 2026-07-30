@@ -1,11 +1,23 @@
-{%- comment -%} Marlowe — values (multicolumn cards) {%- endcomment -%}
+{%- comment -%} Marlowe — values (multicolumn cards with icons) {%- endcomment -%}
 <section data-section="values" style="background:{{ section.settings.bg }};padding:80px 44px;">
-  <div style="max-width:1120px;margin:0 auto;">
+  <div style="max-width:1180px;margin:0 auto;">
     <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:36px;margin:0 0 34px;text-align:center;">{{ section.settings.heading }}</h2>
-    <div class="mb-cards mb-cards--3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+    <div class="mb-values" style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;">
       {%- for block in section.blocks -%}
-        <div {{ block.shopify_attributes }} style="background:#FFFFFF;border-radius:22px;padding:34px 30px;">
-          <div style="width:44px;height:44px;border-radius:50%;background:{{ block.settings.icon_color }};margin-bottom:20px;"></div>
+        <div {{ block.shopify_attributes }} style="background:#FFFFFF;border-radius:22px;padding:32px 28px;">
+          <div style="width:52px;height:52px;border-radius:50%;background:{{ block.settings.icon_bg }};display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:{{ block.settings.icon_color }};">
+            {%- case block.settings.icon -%}
+              {%- when 'leaf' -%}<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20C4 11 11 4 20 4c0 9-7 16-16 16z"></path><path d="M9 15c2-3 5-5 8-6"></path></svg>
+              {%- when 'droplet' -%}<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"></path></svg>
+              {%- when 'flower' -%}<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="7" r="3"></circle><circle cx="17" cy="12" r="3"></circle><circle cx="12" cy="17" r="3"></circle><circle cx="7" cy="12" r="3"></circle><circle cx="12" cy="12" r="2.4" fill="#FFFFFF"></circle></svg>
+              {%- when 'sparkle' -%}<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9z"></path></svg>
+              {%- when 'heart' -%}<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21l-1.4-1.3C5.1 14.7 2 11.9 2 8.4 2 5.9 4 4 6.5 4c1.7 0 3.3.9 4.2 2.3l1.3 1.8 1.3-1.8C15.2 4.9 16.8 4 18.5 4 21 4 23 5.9 23 8.4c0 3.5-3.1 6.3-8.6 11.3z"></path></svg>
+              {%- when 'shield' -%}<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4-3 7-7 9-4-2-7-5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
+              {%- when 'jar' -%}<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v11a3 3 0 0 1-3 3H10a3 3 0 0 1-3-3V7z"></path><path d="M8 3h8"></path><path d="M9 3v4M15 3v4"></path></svg>
+              {%- when 'none' -%}
+              {%- else -%}<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="7" r="3"></circle><circle cx="17" cy="12" r="3"></circle><circle cx="12" cy="17" r="3"></circle><circle cx="7" cy="12" r="3"></circle><circle cx="12" cy="12" r="2.4" fill="#FFFFFF"></circle></svg>
+            {%- endcase -%}
+          </div>
           <h3 style="font-family:'DM Serif Display',serif;font-weight:400;color:#5B4373;font-size:22px;margin:0 0 10px;">{{ block.settings.title }}</h3>
           <p style="color:#3F3F3D;font-size:13px;line-height:1.7;margin:0;">{{ block.settings.text }}</p>
         </div>
@@ -20,7 +32,8 @@
 {%- endif -%}
 
 <style>
-  @media screen and (max-width: 749px) { #shopify-section-{{ section.id }} .mb-cards--3 { grid-template-columns: 1fr !important; } }
+  @media screen and (max-width: 989px) { #shopify-section-{{ section.id }} .mb-values { grid-template-columns: repeat(2, 1fr) !important; } }
+  @media screen and (max-width: 560px) { #shopify-section-{{ section.id }} .mb-values { grid-template-columns: 1fr !important; } }
 </style>
 
 {% schema %}
@@ -28,6 +41,7 @@
   "name": "Values",
   "tag": "section",
   "class": "section",
+  "max_blocks": 8,
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "What we stand for" },
     { "type": "color", "id": "bg", "label": "Background", "default": "#E4EFD1" },
@@ -40,7 +54,24 @@
       "type": "value",
       "name": "Value",
       "settings": [
-        { "type": "color", "id": "icon_color", "label": "Icon color", "default": "#E8D8F8" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "leaf",
+          "options": [
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "flower", "label": "Flower" },
+            { "value": "sparkle", "label": "Sparkle" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "jar", "label": "Jar" },
+            { "value": "none", "label": "None" }
+          ]
+        },
+        { "type": "color", "id": "icon_color", "label": "Icon color", "default": "#5B4373" },
+        { "type": "color", "id": "icon_bg", "label": "Icon circle color", "default": "#EFE8F7" },
         { "type": "text", "id": "title", "label": "Title", "default": "Value title" },
         { "type": "textarea", "id": "text", "label": "Text", "default": "A short description of this value." }
       ]
@@ -50,9 +81,10 @@
     {
       "name": "Values",
       "blocks": [
-        { "type": "value", "settings": { "icon_color": "#E8D8F8", "title": "Small-batch", "text": "Made in runs of a few dozen, so quality never gets lost at scale." } },
-        { "type": "value", "settings": { "icon_color": "#A9CC7B", "title": "Ethically sourced", "text": "Ingredients traced to growers we know, cruelty-free, always." } },
-        { "type": "value", "settings": { "icon_color": "#5B4373", "title": "Skin-safe", "text": "Properly diluted, dermatologist-reviewed, and free of synthetic fragrance." } }
+        { "type": "value", "settings": { "icon": "jar", "icon_color": "#5B4373", "icon_bg": "#EFE8F7", "title": "Small-batch", "text": "Made in runs of a few dozen, so quality never gets lost at scale." } },
+        { "type": "value", "settings": { "icon": "leaf", "icon_color": "#5B4373", "icon_bg": "#E4EFD1", "title": "Ethically sourced", "text": "Ingredients traced to growers we know, cruelty-free, always." } },
+        { "type": "value", "settings": { "icon": "shield", "icon_color": "#5B4373", "icon_bg": "#EFE8F7", "title": "Skin-safe", "text": "Properly diluted, dermatologist-reviewed, and free of synthetic fragrance." } },
+        { "type": "value", "settings": { "icon": "heart", "icon_color": "#5B4373", "icon_bg": "#E4EFD1", "title": "Cruelty-free", "text": "Never tested on animals — kind to your skin and to them." } }
       ]
     }
   ]

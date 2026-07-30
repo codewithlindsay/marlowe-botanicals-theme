@@ -17,11 +17,12 @@
     "values": {
       "type": "values",
       "blocks": {
-        "v1": { "type": "value", "settings": { "icon_color": "#E8D8F8", "title": "Small-batch", "text": "Made in runs of a few dozen, so quality never gets lost at scale." } },
-        "v2": { "type": "value", "settings": { "icon_color": "#A9CC7B", "title": "Ethically sourced", "text": "Ingredients traced to growers we know, cruelty-free, always." } },
-        "v3": { "type": "value", "settings": { "icon_color": "#5B4373", "title": "Skin-safe", "text": "Properly diluted, dermatologist-reviewed, and free of synthetic fragrance." } }
+        "v1": { "type": "value", "settings": { "icon": "jar", "icon_color": "#5B4373", "icon_bg": "#EFE8F7", "title": "Small-batch", "text": "Made in runs of a few dozen, so quality never gets lost at scale." } },
+        "v2": { "type": "value", "settings": { "icon": "leaf", "icon_color": "#5B4373", "icon_bg": "#E4EFD1", "title": "Ethically sourced", "text": "Ingredients traced to growers we know, cruelty-free, always." } },
+        "v3": { "type": "value", "settings": { "icon": "shield", "icon_color": "#5B4373", "icon_bg": "#EFE8F7", "title": "Skin-safe", "text": "Properly diluted, dermatologist-reviewed, and free of synthetic fragrance." } },
+        "v4": { "type": "value", "settings": { "icon": "heart", "icon_color": "#5B4373", "icon_bg": "#E4EFD1", "title": "Cruelty-free", "text": "Never tested on animals — kind to your skin and to them." } }
       },
-      "block_order": ["v1", "v2", "v3"],
+      "block_order": ["v1", "v2", "v3", "v4"],
       "settings": { "show_wave": true, "wave_color": "#5B4373" }
     },
     "founder-quote": { "type": "founder-quote", "settings": {} },
