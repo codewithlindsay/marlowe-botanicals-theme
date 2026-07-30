@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner": {
@@ -13,6 +22,7 @@
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 4,
+        "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "square",
         "image_shape": "default",
@@ -23,7 +33,6 @@
         "enable_filtering": true,
         "filter_type": "horizontal",
         "enable_sorting": true,
-        "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -31,7 +40,17 @@
     "booking-cta": {
       "type": "booking-cta",
       "settings": {
-        "button_link": "/pages/contact"
+        "eyebrow": "Bookings",
+        "heading": "Ready to book your session?",
+        "body": "Come in for hands-on bodywork and a custom blend to take home. I'll confirm your appointment by email within one business day.",
+        "button_text": "Book a session",
+        "button_link": "/pages/contact",
+        "button_bg": "#fdf3ea",
+        "button_text_color": "#5b4373",
+        "image": "shopify://shop_images/jakub-klucky-7yeqemd-p90-unsplash.jpg",
+        "image_size": 420,
+        "image_position": "right",
+        "bg": "#5b4373"
       }
     }
   },
