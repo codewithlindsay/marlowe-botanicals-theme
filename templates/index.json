@@ -286,8 +286,8 @@
           "settings": {
             "label": "Swedish Massage",
             "link": "",
-            "bg": "#e8d8f8",
-            "text_color": "#5b4373"
+            "bg": "#5B4373",
+            "text_color": "#FDF3EA"
           }
         },
         "s2": {
@@ -295,8 +295,8 @@
           "settings": {
             "label": "Aromatherapy Consult",
             "link": "",
-            "bg": "#a9cc7b",
-            "text_color": "#3f3f3d"
+            "bg": "#5B4373",
+            "text_color": "#FDF3EA"
           }
         },
         "s3": {
@@ -304,8 +304,8 @@
           "settings": {
             "label": "Gift Cards",
             "link": "",
-            "bg": "#e4efd1",
-            "text_color": "#5b4373"
+            "bg": "#5B4373",
+            "text_color": "#FDF3EA"
           }
         },
         "s4": {
@@ -313,8 +313,8 @@
           "settings": {
             "label": "Shop the Oils",
             "link": "",
-            "bg": "#5b4373",
-            "text_color": "#e4efd1"
+            "bg": "#5B4373",
+            "text_color": "#FDF3EA"
           }
         }
       },

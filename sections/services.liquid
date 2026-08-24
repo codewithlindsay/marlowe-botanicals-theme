@@ -1,14 +1,14 @@
 {%- comment -%} Marlowe — services (multicolumn: intro / button stack / image) {%- endcomment -%}
 <section data-section="services" style="background:{{ section.settings.bg }};padding:80px 44px;">
-  <div class="mb-services" style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:.72fr 1fr .78fr;gap:44px;align-items:center;">
+  <div class="mb-services" style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
     <div>
       <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:49px;line-height:1.05;margin:0 0 20px;">{{ section.settings.heading }}</h2>
-      <p style="color:#3F3F3D;font-size:16px;line-height:1.75;margin:0;max-width:280px;">{{ section.settings.intro }}</p>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:16px;">
-      {%- for block in section.blocks -%}
-        <a {{ block.shopify_attributes }} href="{{ block.settings.link | default: '#' }}" style="display:block;text-align:center;background:{{ block.settings.bg }};color:{{ block.settings.text_color }};font-family:'DM Serif Display',serif;font-style:italic;font-size:31px;padding:20px;border-radius:16px;">{{ block.settings.label }}</a>
-      {%- endfor -%}
+      <p style="color:#3F3F3D;font-size:16px;line-height:1.75;margin:0 0 30px;max-width:420px;">{{ section.settings.intro }}</p>
+      <div class="mb-services__grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        {%- for block in section.blocks -%}
+          <a {{ block.shopify_attributes }} href="{{ block.settings.link | default: '#' }}" style="display:flex;align-items:center;justify-content:center;text-align:center;background:{{ block.settings.bg }};color:{{ block.settings.text_color }};font-family:'DM Serif Display',serif;font-style:italic;font-size:19px;line-height:1.15;padding:16px 14px;border-radius:14px;min-height:76px;">{{ block.settings.label }}</a>
+        {%- endfor -%}
+      </div>
     </div>
     <div style="position:relative;">
       <div style="border-radius:26px;overflow:hidden;aspect-ratio:.82;background:#E4EFD1;display:flex;align-items:center;justify-content:center;background-image:repeating-linear-gradient(45deg,rgba(91,67,115,.07) 0 14px,transparent 14px 28px);">
@@ -58,8 +58,8 @@
       "settings": [
         { "type": "text", "id": "label", "label": "Label", "default": "Service name" },
         { "type": "url", "id": "link", "label": "Link" },
-        { "type": "color", "id": "bg", "label": "Background", "default": "#E8D8F8" },
-        { "type": "color", "id": "text_color", "label": "Text", "default": "#5B4373" }
+        { "type": "color", "id": "bg", "label": "Background", "default": "#5B4373" },
+        { "type": "color", "id": "text_color", "label": "Text", "default": "#FDF3EA" }
       ]
     }
   ],
@@ -67,10 +67,10 @@
     {
       "name": "Services",
       "blocks": [
-        { "type": "service", "settings": { "label": "Swedish Massage", "bg": "#E8D8F8", "text_color": "#5B4373" } },
-        { "type": "service", "settings": { "label": "Aromatherapy Consult", "bg": "#A9CC7B", "text_color": "#3F3F3D" } },
-        { "type": "service", "settings": { "label": "Gift Cards", "bg": "#E4EFD1", "text_color": "#5B4373" } },
-        { "type": "service", "settings": { "label": "Shop the Oils", "bg": "#5B4373", "text_color": "#E4EFD1" } }
+        { "type": "service", "settings": { "label": "Swedish Massage", "bg": "#5B4373", "text_color": "#FDF3EA" } },
+        { "type": "service", "settings": { "label": "Aromatherapy Consult", "bg": "#5B4373", "text_color": "#FDF3EA" } },
+        { "type": "service", "settings": { "label": "Gift Cards", "bg": "#5B4373", "text_color": "#FDF3EA" } },
+        { "type": "service", "settings": { "label": "Shop the Oils", "bg": "#5B4373", "text_color": "#FDF3EA" } }
       ]
     }
   ]
