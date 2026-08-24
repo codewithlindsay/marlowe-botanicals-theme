@@ -1,6 +1,13 @@
 {%- comment -%} Marlowe — testimonials (3 cards) {%- endcomment -%}
-<section data-section="testimonials" style="background:{{ section.settings.bg }};padding:24px 44px 88px;">
-  <div style="max-width:1180px;margin:0 auto;">
+{%- capture petals -%}<g fill="#FFFFFF"><circle cx="20" cy="12" r="6.6"></circle><circle cx="28" cy="20" r="6.6"></circle><circle cx="20" cy="28" r="6.6"></circle><circle cx="12" cy="20" r="6.6"></circle></g><circle cx="20" cy="20" r="4.2" fill="#A9CC7B"></circle>{%- endcapture -%}
+<section data-section="testimonials" style="background:{{ section.settings.bg }};padding:24px 44px 88px;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:32px;left:44px;pointer-events:none;z-index:0;">
+    <svg width="54" height="54" viewBox="0 0 40 40" style="display:block;">{{ petals }}</svg>
+  </div>
+  <div style="position:absolute;top:40px;right:52px;pointer-events:none;z-index:0;">
+    <svg width="62" height="62" viewBox="0 0 40 40" style="display:block;">{{ petals }}</svg>
+  </div>
+  <div style="max-width:1180px;margin:0 auto;position:relative;z-index:1;">
     <div style="text-align:center;margin-bottom:40px;">
       {%- if section.settings.eyebrow != blank -%}<p style="font-family:'Space Mono',monospace;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:{{ section.settings.eyebrow_color }};margin:0 0 10px;">{{ section.settings.eyebrow }}</p>{%- endif -%}
       <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:49px;line-height:1.05;margin:0;">{{ section.settings.heading }}</h2>
