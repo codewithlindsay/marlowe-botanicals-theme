@@ -1,12 +1,12 @@
 {%- comment -%} Marlowe — services (multicolumn: intro / button stack / image) {%- endcomment -%}
-{%- capture petals -%}<g fill="#FFFFFF"><circle cx="20" cy="12" r="6.6"></circle><circle cx="28" cy="20" r="6.6"></circle><circle cx="20" cy="28" r="6.6"></circle><circle cx="12" cy="20" r="6.6"></circle></g><circle cx="20" cy="20" r="4.2" fill="#A9CC7B"></circle>{%- endcapture -%}
+{%- capture petals -%}<g fill="#FFFFFF"><circle cx="20" cy="11" r="6.2"></circle><circle cx="28.6" cy="17.2" r="6.2"></circle><circle cx="25.3" cy="27.3" r="6.2"></circle><circle cx="14.7" cy="27.3" r="6.2"></circle><circle cx="11.4" cy="17.2" r="6.2"></circle></g><circle cx="20" cy="20" r="4.2" fill="#A9CC7B"></circle>{%- endcapture -%}
 <section data-section="services" style="background:{{ section.settings.bg }};padding:80px 44px;position:relative;">
-  <div style="position:absolute;top:28px;left:40px;pointer-events:none;z-index:0;">
-    <svg width="58" height="58" viewBox="0 0 40 40" style="display:block;">{{ petals }}</svg>
-  </div>
   <div class="mb-services" style="max-width:1180px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
-    <div>
-      <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:49px;line-height:1.05;margin:0 0 20px;">{{ section.settings.heading }}</h2>
+    <div style="position:relative;">
+      <div style="position:absolute;top:-30px;left:-14px;pointer-events:none;z-index:0;">
+        <svg width="52" height="52" viewBox="0 0 40 40" style="display:block;">{{ petals }}</svg>
+      </div>
+      <h2 style="font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:#5B4373;font-size:49px;line-height:1.05;margin:0 0 20px;position:relative;z-index:1;">{{ section.settings.heading }}</h2>
       <p style="color:#3F3F3D;font-size:16px;line-height:1.75;margin:0 0 30px;max-width:420px;">{{ section.settings.intro }}</p>
       <div class="mb-services__grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
         {%- for block in section.blocks -%}
