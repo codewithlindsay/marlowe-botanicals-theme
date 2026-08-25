@@ -149,7 +149,7 @@
         "intro": "Aromatherapy isn't about fixing yourself — it's about making space to rest. Here's what that looks like in practice:",
         "button_text": "Learn more",
         "button_link": "",
-        "bullet_color": "#4E8309",
+        "bullet_color": "#4e8309",
         "bg": "#fdf3ea"
       }
     },
@@ -295,8 +295,8 @@
           "settings": {
             "label": "Swedish Massage",
             "link": "",
-            "bg": "#5B4373",
-            "text_color": "#FDF3EA"
+            "bg": "#5b4373",
+            "text_color": "#fdf3ea"
           }
         },
         "s2": {
@@ -304,8 +304,8 @@
           "settings": {
             "label": "Aromatherapy Consult",
             "link": "",
-            "bg": "#5B4373",
-            "text_color": "#FDF3EA"
+            "bg": "#5b4373",
+            "text_color": "#fdf3ea"
           }
         },
         "s3": {
@@ -313,8 +313,8 @@
           "settings": {
             "label": "Gift Cards",
             "link": "",
-            "bg": "#5B4373",
-            "text_color": "#FDF3EA"
+            "bg": "#5b4373",
+            "text_color": "#fdf3ea"
           }
         },
         "s4": {
@@ -322,8 +322,8 @@
           "settings": {
             "label": "Shop the Oils",
             "link": "",
-            "bg": "#5B4373",
-            "text_color": "#FDF3EA"
+            "bg": "#5b4373",
+            "text_color": "#fdf3ea"
           }
         }
       },
@@ -340,7 +340,7 @@
         "tag_image": "shopify://shop_images/Screenshot_2026-07-22_at_6.51.38_PM.png",
         "tag_size": 118,
         "tag_text": "oil bottle",
-        "bg": "#E8D8F8"
+        "bg": "#e8d8f8"
       }
     },
     "testimonials": {
@@ -381,10 +381,11 @@
       ],
       "settings": {
         "eyebrow": "Kind words",
+        "eyebrow_color": "#5b4373",
         "heading": "What people are saying",
-        "bg": "#E8D8F8",
+        "bg": "#e8d8f8",
         "show_wave": true,
-        "wave_color": "#FDF3EA"
+        "wave_color": "#fdf3ea"
       }
     },
     "about-founder": {
@@ -401,9 +402,9 @@
         "tag_image": "shopify://shop_images/Screenshot_2026-07-22_at_6.51.38_PM.png",
         "tag_size": 120,
         "tag_text": "retro telephone",
-        "bg": "#FDF3EA",
-        "show_wave": true,
-        "wave_color": "#E4EFD1"
+        "bg": "#fdf3ea",
+        "show_wave": false,
+        "wave_color": "#e4efd1"
       }
     },
     "newsletter": {
@@ -417,7 +418,7 @@
         "tag_image": "shopify://shop_images/Screenshot_2026-07-22_at_6.52.25_PM.png",
         "tag_size": 118,
         "tag_text": "shopping bag",
-        "bg": "#E4EFD1"
+        "bg": "#e4efd1"
       }
     }
   },
