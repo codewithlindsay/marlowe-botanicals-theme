@@ -62,7 +62,9 @@
       "settings": {
         "heading": "Pairs well with",
         "collection": "oils",
-        "bg": "#e4efd1"
+        "bg": "#e4efd1",
+        "show_wave": true,
+        "wave_color": "#5B4373"
       }
     },
     "faq": {

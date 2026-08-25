@@ -39,6 +39,11 @@
     </div>
   </div>
 </section>
+{%- if section.settings.show_wave -%}
+<div style="background:{{ section.settings.bg }};line-height:0;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:52px;"><path fill="{{ section.settings.wave_color }}" d="M0,60 L0,30 Q60,0 120,30 T240,30 T360,30 T480,30 T600,30 T720,30 T840,30 T960,30 T1080,30 T1200,30 T1320,30 T1440,30 L1440,60 Z"></path></svg>
+</div>
+{%- endif -%}
 
 <style>
   @media screen and (max-width: 749px) { #shopify-section-{{ section.id }} .mb-cards--3 { grid-template-columns: 1fr !important; } }
@@ -52,7 +57,10 @@
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "Pairs well with" },
     { "type": "collection", "id": "collection", "label": "Collection", "info": "Shown on every product page. Leave empty to use each product's own collection instead." },
-    { "type": "color", "id": "bg", "label": "Background", "default": "#E4EFD1" }
+    { "type": "color", "id": "bg", "label": "Background", "default": "#E4EFD1" },
+    { "type": "header", "content": "Bottom scallop" },
+    { "type": "checkbox", "id": "show_wave", "label": "Show scalloped divider", "default": false },
+    { "type": "color", "id": "wave_color", "label": "Wave color (next section bg)", "default": "#5B4373" }
   ],
   "presets": [{ "name": "Related products" }]
 }
