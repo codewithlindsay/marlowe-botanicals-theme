@@ -20,8 +20,8 @@
     var STYLE = {{ settings.confetti_style | default: 'unlock' | json }};
     var REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Site flower motif (quatrefoil, 4 petals) as a confetti shape, tinted with the palette.
-    var FLOWER_PATH = 'M13.4,12 a6.6,6.6 0 1,0 13.2,0 a6.6,6.6 0 1,0 -13.2,0 Z M21.4,20 a6.6,6.6 0 1,0 13.2,0 a6.6,6.6 0 1,0 -13.2,0 Z M13.4,28 a6.6,6.6 0 1,0 13.2,0 a6.6,6.6 0 1,0 -13.2,0 Z M5.4,20 a6.6,6.6 0 1,0 13.2,0 a6.6,6.6 0 1,0 -13.2,0 Z';
+    // Site flower motif (5 petals) as a confetti shape, tinted with the palette.
+    var FLOWER_PATH = 'M13.8,11 a6.2,6.2 0 1,0 12.4,0 a6.2,6.2 0 1,0 -12.4,0 Z M22.4,17.2 a6.2,6.2 0 1,0 12.4,0 a6.2,6.2 0 1,0 -12.4,0 Z M19.1,27.3 a6.2,6.2 0 1,0 12.4,0 a6.2,6.2 0 1,0 -12.4,0 Z M8.5,27.3 a6.2,6.2 0 1,0 12.4,0 a6.2,6.2 0 1,0 -12.4,0 Z M5.2,17.2 a6.2,6.2 0 1,0 12.4,0 a6.2,6.2 0 1,0 -12.4,0 Z M16,20 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0 Z';
     var FLOWER_COLORS = ['#5B4373', '#A9CC7B', '#C9B3E8', '#E8D8F8']; // plum, lime, lavender, light lavender
     var flowerShape;
     function flowerOpts() {
