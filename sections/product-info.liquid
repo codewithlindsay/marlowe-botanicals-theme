@@ -120,6 +120,12 @@
     min-height: 54px !important;
     box-shadow: none !important;
   }
+  #shopify-section-{{ section.id }} .shopify-payment-button__button--unbranded:before,
+  #shopify-section-{{ section.id }} .shopify-payment-button__button--unbranded:after {
+    box-shadow: none !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+  }
   #shopify-section-{{ section.id }} .shopify-payment-button__button--unbranded:hover:not([disabled]) { background-color: #9bbf6b !important; }
   #shopify-section-{{ section.id }} .shopify-payment-button__more-options { color: #5B4373 !important; }
   @media screen and (max-width: 749px) {
